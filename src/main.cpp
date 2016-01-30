@@ -12,69 +12,67 @@
 #include <iostream>
 #include <math.h>
 
-// #include "seakgObjects2D.h"
+#include "drawobjectscollection.h"
+#include "frame.h"
 
-int g_nWidth = 1280;
-int g_nHeight = 720;
-int g_nFrameRate = 25;
-int g_nSeconds = 5;
+int g_nFrameRate = 5;
+int g_nSeconds = 15;
 
 int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
+
+	Frame *pFrame = new Frame(1280, 720);
+	DrawObjectsCollection *pDrawObjectsCollection = new DrawObjectsCollection();
+
 	// Create seed for the random
 	// That is needed only once on application startup
 	QTime time = QTime::currentTime();
 	qsrand((uint)time.msec());
 
-	//int nBytes = g_nWidth*g_nHeight;
-	// int nMiddle = g_nWidth/2;
-
-	int **pFrame = new int*[g_nWidth];
-	for(int x = 0; x < g_nWidth; x++){
-		pFrame[x] = new int[g_nHeight];
-	}
-
-	// 1382400 == 1920*720 == 1280*1080
-	// 1280*720 = 921600
-	// 460800 == 460800
-	// One frame is W*H*1.5;
-
-	for(int x = 0; x < g_nWidth; x++){
-		for(int y = 0; y < g_nHeight; y++){
-			pFrame[x][y] = 0x00000000;
-			if(x >= 0 && x < 10){
-				pFrame[x][y] = 0x00FFFFFF;
-			}
-
-			if(x > g_nWidth - 10 && x < g_nWidth){
-				pFrame[x][y] = 0x00FF0000;
-			}
-
-			if(y >= 0 && y < 10){
-				pFrame[x][y] = 0x000000FF;
-			}
-
-			if(y > g_nHeight - 10 && y < g_nHeight){
-				pFrame[x][y] = 0x0000FF00;
-			}
-		}
-	}
-
-
-	// output
 	for(int s = 0; s < g_nSeconds; s++){
 		for(int f = 0; f < g_nFrameRate; f++){
-	for(int i = 0; i < 720; i++)
-		std::cout << char(0x00) << char(0x00) << char(0x00);
-			for(int x = 0; x < g_nWidth; x++){
-				for(int y = 0; y < g_nHeight; y++){
-					int d = pFrame[x][y];
-					std::cout << char((d >> 16)  & 0x000000FF);
-					std::cout << char((d >> 8)  & 0x000000FF);
-					std::cout << char((d >> 0)  & 0x000000FF);
-				}
+			int y = (720 - 20)/2 - 200/2;
+			int x = (1280 - 20)/2 - (7*110)/2;
+			int dx = qrand()%200 - 100;
+			int dy = qrand()%200 - 100;
+			// int dx = 0;
+			pDrawObjectsCollection->draw("blackFillFrame", pFrame, 0, 0);
+			pDrawObjectsCollection->draw("whiteBorderFrame", pFrame, 0, 0);
+			int L = (qrand() % 8);
+			switch (L) {
+				case 0:
+					pDrawObjectsCollection->draw("h1_C_upper", pFrame, x + 0*110 + dx, y + dy);
+					break;
+				case 1:
+					pDrawObjectsCollection->draw("h1_T_upper", pFrame, x + 1*110 + dx, y + dy);
+					break;
+				case 2:
+					pDrawObjectsCollection->draw("h1_F_upper", pFrame, x + 2*110 + dx, y + dy);
+					break;
+				case 3:
+					pDrawObjectsCollection->draw("h1_I_lower", pFrame, x + 3*110 + dx, y + dy);
+					break;
+				case 4:
+					pDrawObjectsCollection->draw("h1_G_lower", pFrame, x + 4*110 + dx, y + dy);
+					break;
+				case 5:
+					pDrawObjectsCollection->draw("h1_H_lower", pFrame, x + 5*110 + dx, y + dy);
+					break;
+				case 6:
+					pDrawObjectsCollection->draw("h1_T_lower", pFrame, x + 6*110 + dx, y + dy);
+					break;
+				case 7:
+					pDrawObjectsCollection->draw("h1_C_upper", pFrame, x + 0*110, y);
+					pDrawObjectsCollection->draw("h1_T_upper", pFrame, x + 1*110, y);
+					pDrawObjectsCollection->draw("h1_F_upper", pFrame, x + 2*110, y);
+					pDrawObjectsCollection->draw("h1_I_lower", pFrame, x + 3*110, y);
+					pDrawObjectsCollection->draw("h1_G_lower", pFrame, x + 4*110, y);
+					pDrawObjectsCollection->draw("h1_H_lower", pFrame, x + 5*110, y);
+					pDrawObjectsCollection->draw("h1_T_lower", pFrame, x + 6*110, y);
+					break;				
 			}
+			pFrame->outputToStd();
 		}
 	}
 	return 0;
