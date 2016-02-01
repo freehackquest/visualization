@@ -8,6 +8,8 @@
 #include <QFont>
 #include <QList>
 #include <QPaintDevice>
+#include <QVector>
+
 
 #include <iostream>
 #include <math.h>
@@ -15,14 +17,48 @@
 #include "drawobjectscollection.h"
 #include "frame.h"
 
-int g_nFrameRate = 5;
-int g_nSeconds = 15;
-
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
 	QApplication app(argc, argv);
 
-	Frame *pFrame = new Frame(1280, 720);
+	QVector<QString> params;
+	for(int i = 0; i < argc; i++){
+		params.push_back(argv[i]);
+	}
+
+	int nFrameRate = 5;
+	int nSeconds = 15;
+	int nWidth = 1280;
+	int nHeight = 720;
+
+	{
+		int n = params.indexOf("-framerate");
+		if(n > 0 && n+1 < params.size()){
+			nFrameRate = params[n+1].toInt();
+		}
+	}
+
+	{
+		int n = params.indexOf("-time");
+		if(n > 0 && n+1 < params.size()){
+			nSeconds = params[n+1].toInt();
+		}
+	}
+
+	{
+		int n = params.indexOf("-width");
+		if(n > 0 && n+1 < params.size()){
+			nWidth = params[n+1].toInt();
+		}
+	}
+
+	{
+		int n = params.indexOf("-height");
+		if(n > 0 && n+1 < params.size()){
+			nHeight = params[n+1].toInt();
+		}
+	}
+
+	Frame *pFrame = new Frame(nWidth, nHeight);
 	DrawObjectsCollection *pDrawObjectsCollection = new DrawObjectsCollection();
 
 	// Create seed for the random
@@ -30,8 +66,8 @@ int main(int argc, char *argv[])
 	QTime time = QTime::currentTime();
 	qsrand((uint)time.msec());
 
-	for(int s = 0; s < g_nSeconds; s++){
-		for(int f = 0; f < g_nFrameRate; f++){
+	for(int s = 0; s < nSeconds; s++){
+		for(int f = 0; f < nFrameRate; f++){
 			int y = (720 - 20)/2 - 200/2;
 			int x = (1280 - 20)/2 - (7*110)/2;
 			int dx = qrand()%200 - 100;
@@ -70,7 +106,7 @@ int main(int argc, char *argv[])
 					pDrawObjectsCollection->draw("h1_G_lower", pFrame, x + 4*110, y);
 					pDrawObjectsCollection->draw("h1_H_lower", pFrame, x + 5*110, y);
 					pDrawObjectsCollection->draw("h1_T_lower", pFrame, x + 6*110, y);
-					break;				
+					break;
 			}
 			pFrame->outputToStd();
 		}

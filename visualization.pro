@@ -4,8 +4,10 @@ QT += widgets
 QT += sql
 
 TARGET = visualization
-CONFIG += console release
+CONFIG += console release app_bundle
 TEMPLATE = app
+OBJECTS_DIR = tmp/
+MOC_DIR = tmp/
 
 SOURCES += \
 	src/main.cpp \
