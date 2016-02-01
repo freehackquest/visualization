@@ -1,0 +1,27 @@
+output 1280 720
+framerate 5
+load "screen.png" like background
+load "sibirctf.png" like sibirctf
+load "fts.png" like keva
+load "mustang.png" like mustang
+load "life.png" like life
+draw background
+draw title sibirctf "21-22 May 2015"
+wait 5
+
+table score
+place team score
+1 suslopas 3768.62
+3 fts 1154.90
+5 mustang 200
+table end
+
+draw blackscreen
+draw score
+wait 5
+
+event e0001
+draw blackscreen
+event end 
+
+draw event100
