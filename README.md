@@ -43,11 +43,11 @@ Use character ```#``` for your comments
 
 ## Skip frames
 
-	```skip <count> ``
+Usage: ```skip <count>```
 
 ## Draw object
 
-	```draw <object> [<params>]```
+Usage: ```draw <object> [<params>]```
 
 ## Colors
 
@@ -86,18 +86,27 @@ Usage: ```draw rect-border <number-x1> <number-y1> <number-x2> <number-y2> <numb
 
 Usage: ```draw pixel <number-x1> <number-y1> <color>```
 
-## object table
+## Define new objects
+### table
 
 	table <table-name>
+	# data
+	table end
+
+Usage: ```draw <table-name> <number-x1> <number-y1> <border-color> <fill-color>```
+
+Example:
+	
+	table tbl1
 	place name score
 	1 team1 1000.22
 	2 team2 900.21
 	3 team3 100.00
 	table end
+	
+	draw tbl1 100 200 white black
 
-Usage: ```draw <table-name> <number-x1> <number-y1> <color>```
-
-## object frame
+### frame
 
 	frame <frame-name>
 	# some commands
@@ -108,21 +117,27 @@ Usage: ```<frame-name> <number-x1> <number-y1> <color>```
 Example:
 
 	frame frm1
+	draw background black
 	draw line 100 100 200 200 1 white
 	draw pixel 100 200 red
+	frame end
+	
+	frame frm2
+	draw background black
+	draw line 200 200 100 100 1 white
+	draw pixel 100 200 red
+	frame end
+	
+	draw frm1
+	skip 5
+	draw frm2
+	skip 5
+	draw frm1
+	skip 5
+	
 	remove frm1
-	frame end
-	draw frm1
+	remove frm2
 
-or
-
-	frame frm1
-	draw line 100 100 200 200 1 white
-	draw pixel 100 200 red
-	#remove frm1
-	frame end
-	draw frm1
-
-## remove object which defined priviously
+### remove object which defined priviously
 
 Usage: ```remove <object-name>```
