@@ -1,24 +1,27 @@
-output 1280 720
-framerate 5
+## output 1280 720
+## framerate 5
 
+draw background white
+skip 5
+draw background black
+skip 5
+draw background red
 
-draw background
-draw title sibirctf "21-22 May 2015"
-wait 5
+## draw title sibirctf "21-22 May 2015"
+# wait 5
 
-table score
-place team score
-1 suslopas 3768.62
-3 fts 1154.90
-5 mustang 200
-table end
+# table score
+#	place team score
+#	1 suslopas 3768.62
+#	3 fts 1154.90
+#	5 mustang 200
+# table end
 
-draw blackscreen
-draw score
-wait 5
+# draw blackscreen
+# draw score
+# wait 5
 
-event e0001
-draw blackscreen
-event end 
-
-draw event100
+# event e0001
+# draw blackscreen
+# event end 
+# draw event100

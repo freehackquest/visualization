@@ -4,12 +4,10 @@
 #include <QDir>
 #include <QImage>
 #include <QTime>
-#include <QPainter>
 #include <QFont>
 #include <QList>
 #include <QPaintDevice>
 #include <QVector>
-
 
 #include <iostream>
 #include <math.h>
@@ -17,18 +15,23 @@
 #include "drawobjectscollection.h"
 #include "frame.h"
 #include "inputThread.h"
+#include "logger.h"
 
 int main(int argc, char *argv[]){
 	QApplication app(argc, argv);
-
-	InputThread *pInputThread = new InputThread();
-	pInputThread->start();
-	// pInputThread->wait();
 
 	QVector<QString> params;
 	for(int i = 0; i < argc; i++){
 		params.push_back(argv[i]);
 	}
+	Logger *pLogger = new Logger("visualization.log");
+	pLogger->info("visualization started.");
+	if(params.indexOf("--disablelog") >= 0)
+		pLogger->disable();
+	
+	InputThread *pInputThread = new InputThread();
+	pInputThread->setLogger(pLogger);
+	pInputThread->start();
 
 	int nFrameRate = 5;
 	int nSeconds = -1;
@@ -36,28 +39,28 @@ int main(int argc, char *argv[]){
 	int nHeight = 720;
 
 	{
-		int n = params.indexOf("-framerate");
+		int n = params.indexOf("--framerate");
 		if(n > 0 && n+1 < params.size()){
 			nFrameRate = params[n+1].toInt();
 		}
 	}
 
 	{
-		int n = params.indexOf("-time");
+		int n = params.indexOf("--time");
 		if(n > 0 && n+1 < params.size()){
 			nSeconds = params[n+1].toInt();
 		}
 	}
 
 	{
-		int n = params.indexOf("-width");
+		int n = params.indexOf("--width");
 		if(n > 0 && n+1 < params.size()){
 			nWidth = params[n+1].toInt();
 		}
 	}
 
 	{
-		int n = params.indexOf("-height");
+		int n = params.indexOf("--height");
 		if(n > 0 && n+1 < params.size()){
 			nHeight = params[n+1].toInt();
 		}

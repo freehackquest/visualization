@@ -13,6 +13,9 @@ SOURCES += \
 	src/main.cpp \
 	src/frame.cpp \
 	src/inputThread.cpp \
+	src/parser.cpp \
+	src/command.cpp \
+	src/logger.cpp \
 	src/drawobjectscollection.cpp \
 	src/drawobjects/blackFillFrame.cpp \
 	src/drawobjects/h1_C_upper.cpp \
@@ -28,6 +31,9 @@ HEADERS += \
 	src/idrawobject.h \
 	src/frame.h \
 	src/inputThread.h \
+	src/parser.h \
+	src/command.h \
+	src/logger.h \
 	src/drawobjectscollection.h \
 	src/drawobjects/blackFillFrame.h \
 	src/drawobjects/h1_C_upper.h \

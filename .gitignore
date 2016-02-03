@@ -29,5 +29,6 @@
 
 Makefile
 visualization
+visualization.log
 *.avi
 tmp/*

@@ -1,8 +1,13 @@
 #!/bin/bash
 
-if [ -f "output.avi" ]; then
-	rm "output.avi"
-fi
+cat examples/exampleScoreborad.visualization | \
+	./visualization --framerate 5 | \
+	avplay -f rawvideo -pixel_format rgb24 -video_size 1280x720 \
+	-framerate 5 -i pipe:0
+
+#if [ -f "output.avi" ]; then
+#	rm "output.avi"
+#fi
 ## avconv -> ffmpeg
 
 #./visualization -framerate 5 -time 15 | avconv -f rawvideo -video_size 1280x720 \
@@ -19,5 +24,3 @@ fi
 	-vcodec mpeg4 output.avi
 
 #ffplay output.avi
-
-./visualization -framerate 5 -time 5 | ffplay -f rawvideo -pixel_format rgb24 -video_size 1280x720 -framerate 5 -i pipe:0
