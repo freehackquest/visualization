@@ -12,6 +12,7 @@ MOC_DIR = tmp/
 SOURCES += \
 	src/main.cpp \
 	src/frame.cpp \
+	src/inputThread.cpp \
 	src/drawobjectscollection.cpp \
 	src/drawobjects/blackFillFrame.cpp \
 	src/drawobjects/h1_C_upper.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
 HEADERS += \
 	src/idrawobject.h \
 	src/frame.h \
+	src/inputThread.h \
 	src/drawobjectscollection.h \
 	src/drawobjects/blackFillFrame.h \
 	src/drawobjects/h1_C_upper.h \

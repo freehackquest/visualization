@@ -16,9 +16,14 @@
 
 #include "drawobjectscollection.h"
 #include "frame.h"
+#include "inputThread.h"
 
 int main(int argc, char *argv[]){
 	QApplication app(argc, argv);
+
+	InputThread *pInputThread = new InputThread();
+	pInputThread->start();
+	// pInputThread->wait();
 
 	QVector<QString> params;
 	for(int i = 0; i < argc; i++){
@@ -26,7 +31,7 @@ int main(int argc, char *argv[]){
 	}
 
 	int nFrameRate = 5;
-	int nSeconds = 15;
+	int nSeconds = -1;
 	int nWidth = 1280;
 	int nHeight = 720;
 
@@ -66,7 +71,9 @@ int main(int argc, char *argv[]){
 	QTime time = QTime::currentTime();
 	qsrand((uint)time.msec());
 
-	for(int s = 0; s < nSeconds; s++){
+	int s = 0;
+	while(s < nSeconds || nSeconds == -1){
+		s++;
 		for(int f = 0; f < nFrameRate; f++){
 			int y = (720 - 20)/2 - 200/2;
 			int x = (1280 - 20)/2 - (7*110)/2;
