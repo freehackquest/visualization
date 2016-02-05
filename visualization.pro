@@ -11,11 +11,15 @@ MOC_DIR = tmp/
 
 SOURCES += \
 	src/main.cpp \
+	src/logger.cpp \
 	src/frame.cpp \
 	src/inputThread.cpp \
 	src/parser.cpp \
-	src/command.cpp \
-	src/logger.cpp \
+	src/commandscollection.cpp \
+	src/commands/draw.cpp \
+	src/commands/skip.cpp \
+	src/commands/background.cpp \
+	src/commands/table.cpp \
 	src/drawobjectscollection.cpp \
 	src/drawobjects/blackFillFrame.cpp \
 	src/drawobjects/h1_C_upper.cpp \
@@ -29,11 +33,16 @@ SOURCES += \
 
 HEADERS += \
 	src/idrawobject.h \
+	src/icommand.h \
+	src/logger.h \
 	src/frame.h \
 	src/inputThread.h \
 	src/parser.h \
-	src/command.h \
-	src/logger.h \
+	src/commandscollection.h \
+	src/commands/draw.h \
+	src/commands/skip.h \
+	src/commands/background.h \
+	src/commands/table.h \
 	src/drawobjectscollection.h \
 	src/drawobjects/blackFillFrame.h \
 	src/drawobjects/h1_C_upper.h \

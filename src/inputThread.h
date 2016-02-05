@@ -4,7 +4,7 @@
 #include <QTextStream>
 #include <QFile>
 #include "parser.h"
-#include "command.h"
+#include "icommand.h"
 #include "logger.h"
 #include <QMutex>
 
@@ -15,14 +15,14 @@ class InputThread : public QThread {
 		InputThread();
 		void setLogger(Logger *pLogger);
 		bool hasCommand();
-		Command command();
-		void pushCommand(Command command);
+		ICommand *command();
+		void pushCommand(ICommand *pCommand);
 	private:
 		bool m_bDebug;
 		Parser *m_pParser;
 		QTextStream *m_pLogFile;
 		QFile *m_pFile;
-		QVector<Command> m_vCommands;
+		QVector<ICommand *> m_vCommands;
 		QMutex m_Mutex;
 		Logger *m_pLogger;
 };

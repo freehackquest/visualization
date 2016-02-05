@@ -20,13 +20,20 @@ bool InputThread::hasCommand(){
 	return m_vCommands.size() > 0;
 };
 
-Command InputThread::command(){
+ICommand *InputThread::command(){
 	QMutexLocker lock(&m_Mutex);
+	if(m_vCommands.size() > 0){
+		ICommand *pCommand = m_vCommands.first();
+		m_vCommands.pop_front();
+		return pCommand;
+	}
+	return NULL;
 };
 
-void InputThread::pushCommand(Command command){
+void InputThread::pushCommand(ICommand *pCommand){
 	QMutexLocker lock(&m_Mutex);
-	m_pLogger->debug("PUSHED COMMAND: " + command.toString());
+	m_vCommands.push_back(pCommand);
+	m_pLogger->debug("PUSHED COMMAND: " + pCommand->code());
 };
 
 void InputThread::run(){

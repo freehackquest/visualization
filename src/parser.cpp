@@ -4,6 +4,8 @@
 Parser::Parser(){
 	this->reset();
 	m_pLogger = new Logger();
+	m_pCommandsCollection = new CommandsCollection();
+	m_bMultiLineCommand = false;
 };
 
 void Parser::setLogger(Logger *pLogger){
@@ -11,13 +13,13 @@ void Parser::setLogger(Logger *pLogger){
 };
 
 void Parser::reset(){
-	m_bCommandCompleted = false;
 	m_strCommandName = "";
 	m_listCode.clear();
 	m_listSingleLineCommands
 		<< "draw"
 		<< "wait"
 		<< "line"
+		<< "skip"
 		<< "rect"
 		<< "pixel";
 };
@@ -32,18 +34,29 @@ void Parser::parse(QString code){
 void Parser::parseLine(QString line){
 	line = removeComment(line);
 	if(line.length() > 0){
-		m_listCode << line;
 		QStringList list = line.split(" ");
 		QString strName = list[0];
-		list.removeAt(0);
-		if(m_listSingleLineCommands.contains(strName)){
-			m_bCommandCompleted = true;
-			Command command;
-			command.setName(strName);
-			command.setParams(list);
-			m_vCommands.push_back(command);
+		if(m_bMultiLineCommand == true && list.size() == 2){
+			if(list[0] == m_pTemporaryCommand->name() && list[1] == "end"){
+				m_bMultiLineCommand = false;
+				m_vCommands.push_back(m_pTemporaryCommand);
+			}else{
+				m_pTemporaryCommand->appendCode(line);
+			}
+		}else if(m_bMultiLineCommand == true){
+				m_pTemporaryCommand->appendCode(line);
+		}else if(m_pCommandsCollection->contains(strName)){
+			m_bMultiLineCommand = m_pCommandsCollection->isMultiLine(strName);
+			m_pTemporaryCommand = m_pCommandsCollection->create(strName);
+			
+			list.removeAt(0);
+			m_pTemporaryCommand->setParams(list);
+				
+			if(!m_bMultiLineCommand){
+				m_vCommands.push_back(m_pTemporaryCommand);
+			}
 		}else{
-			m_pLogger->warn("'" + strName + "' skip (Unknown command)");
+			m_pLogger->warn("'" + strName + "' unknown command, skipped");
 		}
 	}
 };
@@ -52,17 +65,13 @@ bool Parser::hasCommand(){
 	return m_vCommands.size() > 0;
 };
 
-Command Parser::command(){
-	Command command;
+ICommand *Parser::command(){
 	if(m_vCommands.size() > 0){
-		command = m_vCommands.first();
+		ICommand *pCommand = m_vCommands.first();
 		m_vCommands.pop_front();
+		return pCommand;
 	}
-	return command;
-};
-
-bool Parser::isCommandCompleted(){
-	return m_bCommandCompleted;
+	return NULL;
 };
 
 QString Parser::removeComment(QString line){

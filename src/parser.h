@@ -1,9 +1,11 @@
 #ifndef PARSER_H
 #define PARSER_H
+
 #include <QString>
 #include <QStringList>
 #include <QVector>
-#include "command.h"
+#include "icommand.h"
+#include "commandscollection.h"
 #include "logger.h"
 
 class Parser {
@@ -11,19 +13,21 @@ class Parser {
 		Parser();
 		void setLogger(Logger *pLogger);
 		void parse(QString line);
-		bool isCommandCompleted();
 		bool hasCommand();
-		Command command();
+		ICommand* command();
 		void reset();
 	private:
 		void parseLine(QString line);
 		bool m_bCommandCompleted;
+		bool m_bMultiLineCommand;
 		QString removeComment(QString);
 		QStringList m_listCode;
 		QString m_strCommandName;
 		QStringList m_listSingleLineCommands;
-		QVector<Command> m_vCommands;
+		QVector<ICommand*> m_vCommands;
+		ICommand* m_pTemporaryCommand;
 		Logger *m_pLogger;
+		CommandsCollection *m_pCommandsCollection;
 };
 
 #endif // PARSER_H
