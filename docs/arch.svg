@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="55cm"
+   height="24cm"
+   viewBox="98 494 1083 467"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="arch.svg"
+   inkscape:export-filename="arch.png"
+   inkscape:export-xdpi="128"
+   inkscape:export-ydpi="128">
+  <metadata
+     id="metadata258">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs256" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview254"
+     showgrid="false"
+     inkscape:zoom="0.15855758"
+     inkscape:cx="974.40942"
+     inkscape:cy="425.19684"
+     inkscape:window-x="373"
+     inkscape:window-y="104"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <g
+     id="g4">
+    <rect
+       style="fill: #ffffff"
+       x="100"
+       y="495.1"
+       width="1080"
+       height="464.4"
+       id="rect6" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #00ff00"
+       x="100"
+       y="495.1"
+       width="1080"
+       height="464.4"
+       id="rect8" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="640"
+       y="731.2"
+       id="text10">
+      <tspan
+         x="640"
+         y="731.2"
+         id="tspan12" />
+    </text>
+  </g>
+  <g
+     id="g14">
+    <rect
+       style="fill: #ffffff"
+       x="287"
+       y="554"
+       width="440"
+       height="380"
+       id="rect16" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
+       x="287"
+       y="554"
+       width="440"
+       height="380"
+       id="rect18" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="507"
+       y="747.9"
+       id="text20">
+      <tspan
+         x="507"
+         y="747.9"
+         id="tspan22" />
+    </text>
+  </g>
+  <text
+     font-size="21.8327"
+     style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal"
+     x="381"
+     y="538"
+     id="text24">
+    <tspan
+       x="381"
+       y="538"
+       id="tspan26">Visualization Server</tspan>
+  </text>
+  <g
+     id="g28">
+    <rect
+       style="fill: #ffffff"
+       x="847"
+       y="554"
+       width="300"
+       height="380"
+       id="rect30" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 20; stroke: #000000"
+       x="847"
+       y="554"
+       width="300"
+       height="380"
+       id="rect32" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="997"
+       y="747.9"
+       id="text34">
+      <tspan
+         x="997"
+         y="747.9"
+         id="tspan36" />
+    </text>
+  </g>
+  <g
+     id="g38">
+    <rect
+       style="fill: #ffffff"
+       x="407"
+       y="574"
+       width="300"
+       height="340"
+       id="rect40" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 4; stroke: #000000"
+       x="407"
+       y="574"
+       width="300"
+       height="340"
+       id="rect42" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="557"
+       y="747.9"
+       id="text44">
+      <tspan
+         x="557"
+         y="747.9"
+         id="tspan46" />
+    </text>
+  </g>
+  <g
+     id="g48">
+    <rect
+       style="fill: #ffffff"
+       x="307"
+       y="574"
+       width="80"
+       height="220"
+       id="rect50" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="307"
+       y="574"
+       width="80"
+       height="220"
+       id="rect52" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="347"
+       y="663.9"
+       id="text54">
+      <tspan
+         x="347"
+         y="663.9"
+         id="tspan56">nginx</tspan>
+      <tspan
+         x="347"
+         y="679.9"
+         id="tspan58">+ </tspan>
+      <tspan
+         x="347"
+         y="695.9"
+         id="tspan60">rtmp</tspan>
+      <tspan
+         x="347"
+         y="711.9"
+         id="tspan62">module</tspan>
+    </text>
+  </g>
+  <g
+     id="g64">
+    <rect
+       style="fill: #ffffff"
+       x="127"
+       y="574"
+       width="103.4"
+       height="70"
+       id="rect66" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="127"
+       y="574"
+       width="103.4"
+       height="70"
+       id="rect68" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="178.7"
+       y="604.9"
+       id="text70">
+      <tspan
+         x="178.7"
+         y="604.9"
+         id="tspan72">Customer</tspan>
+      <tspan
+         x="178.7"
+         y="620.9"
+         id="tspan74">RTMP-Player</tspan>
+    </text>
+  </g>
+  <g
+     id="g76">
+    <rect
+       style="fill: #ffffff"
+       x="127"
+       y="654"
+       width="103.4"
+       height="70"
+       id="rect78" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="127"
+       y="654"
+       width="103.4"
+       height="70"
+       id="rect80" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="178.7"
+       y="684.9"
+       id="text82">
+      <tspan
+         x="178.7"
+         y="684.9"
+         id="tspan84">Customer</tspan>
+      <tspan
+         x="178.7"
+         y="700.9"
+         id="tspan86">RTMP-Player</tspan>
+    </text>
+  </g>
+  <g
+     id="g88">
+    <rect
+       style="fill: #ffffff"
+       x="127"
+       y="734"
+       width="103.4"
+       height="70"
+       id="rect90" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="127"
+       y="734"
+       width="103.4"
+       height="70"
+       id="rect92" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="178.7"
+       y="764.9"
+       id="text94">
+      <tspan
+         x="178.7"
+         y="764.9"
+         id="tspan96">Customer</tspan>
+      <tspan
+         x="178.7"
+         y="780.9"
+         id="tspan98">RTMP-Player</tspan>
+    </text>
+  </g>
+  <g
+     id="g100">
+    <rect
+       style="fill: #ffffff"
+       x="127"
+       y="814"
+       width="103.4"
+       height="70"
+       id="rect102" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="127"
+       y="814"
+       width="103.4"
+       height="70"
+       id="rect104" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="178.7"
+       y="844.9"
+       id="text106">
+      <tspan
+         x="178.7"
+         y="844.9"
+         id="tspan108">Customer</tspan>
+      <tspan
+         x="178.7"
+         y="860.9"
+         id="tspan110">RTMP-Player</tspan>
+    </text>
+  </g>
+  <g
+     id="g112">
+    <line
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x1="306.001"
+       y1="657.628"
+       x2="239.651"
+       y2="614.951"
+       id="line114" />
+    <polygon
+       style="fill: #000000"
+       points="242.356,610.746 231.241,609.541 236.947,619.156 "
+       id="polygon116" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       points="242.356,610.746 231.241,609.541 236.947,619.156 "
+       id="polygon118" />
+  </g>
+  <g
+     id="g120">
+    <line
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x1="306.001"
+       y1="685.758"
+       x2="241.39"
+       y2="688.529"
+       id="line122" />
+    <polygon
+       style="fill: #000000"
+       points="241.176,683.533 231.399,688.957 241.604,693.524 "
+       id="polygon124" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       points="241.176,683.533 231.399,688.957 241.604,693.524 "
+       id="polygon126" />
+  </g>
+  <g
+     id="g128">
+    <line
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x1="306.001"
+       y1="713.888"
+       x2="239.289"
+       y2="762.52"
+       id="line130" />
+    <polygon
+       style="fill: #000000"
+       points="236.343,758.48 231.208,768.411 242.234,766.561 "
+       id="polygon132" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       points="236.343,758.48 231.208,768.411 242.234,766.561 "
+       id="polygon134" />
+  </g>
+  <g
+     id="g136">
+    <line
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x1="306.001"
+       y1="742.018"
+       x2="236.748"
+       y2="840.017"
+       id="line138" />
+    <polygon
+       style="fill: #000000"
+       points="232.665,837.131 230.977,848.183 240.832,842.902 "
+       id="polygon140" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       points="232.665,837.131 230.977,848.183 240.832,842.902 "
+       id="polygon142" />
+  </g>
+  <g
+     id="g144">
+    <rect
+       style="fill: #ffffff"
+       x="307"
+       y="814"
+       width="80"
+       height="80"
+       id="rect146" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="307"
+       y="814"
+       width="80"
+       height="80"
+       id="rect148" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="347"
+       y="849.9"
+       id="text150">
+      <tspan
+         x="347"
+         y="849.9"
+         id="tspan152">ffmpeg</tspan>
+      <tspan
+         x="347"
+         y="865.9"
+         id="tspan154">encoder</tspan>
+    </text>
+  </g>
+  <g
+     id="g156">
+    <line
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x1="425.994"
+       y1="854"
+       x2="398.195"
+       y2="854"
+       id="line158" />
+    <polygon
+       style="fill: #000000"
+       points="398.195,849 388.195,854 398.195,859 "
+       id="polygon160" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       points="398.195,849 388.195,854 398.195,859 "
+       id="polygon162" />
+  </g>
+  <g
+     id="g164">
+    <line
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x1="347"
+       y1="814"
+       x2="347"
+       y2="805.997"
+       id="line166" />
+    <polygon
+       style="fill: #000000"
+       points="352,805.997 347,795.997 342,805.997 "
+       id="polygon168" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       points="352,805.997 347,795.997 342,805.997 "
+       id="polygon170" />
+  </g>
+  <g
+     id="g172">
+    <line
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x1="866.03"
+       y1="634"
+       x2="698"
+       y2="634"
+       id="line174" />
+    <polygon
+       style="fill: #000000"
+       points="698,629 688,634 698,639 "
+       id="polygon176" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       points="698,629 688,634 698,639 "
+       id="polygon178" />
+  </g>
+  <text
+     font-size="21.8327"
+     style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal"
+     x="907"
+     y="534"
+     id="text180">
+    <tspan
+       x="907"
+       y="534"
+       id="tspan182">Jury Server</tspan>
+  </text>
+  <text
+     font-size="12.8"
+     style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal"
+     x="747"
+     y="614"
+     id="text184">
+    <tspan
+       x="747"
+       y="614"
+       id="tspan186">Socket</tspan>
+    <tspan
+       x="747"
+       y="630"
+       id="tspan188">or WebSocket</tspan>
+  </text>
+  <g
+     id="g190">
+    <rect
+       style="fill: #ffffff"
+       x="427"
+       y="694"
+       width="260"
+       height="100"
+       id="rect192" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="427"
+       y="694"
+       width="260"
+       height="100"
+       id="rect194" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="557"
+       y="739.9"
+       id="text196">
+      <tspan
+         x="557"
+         y="739.9"
+         id="tspan198">Parser Input</tspan>
+      <tspan
+         x="557"
+         y="755.9"
+         id="tspan200">Commands</tspan>
+    </text>
+  </g>
+  <g
+     id="g202">
+    <rect
+       style="fill: #ffffff"
+       x="427"
+       y="594"
+       width="260"
+       height="80"
+       id="rect204" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="427"
+       y="594"
+       width="260"
+       height="80"
+       id="rect206" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal"
+       x="557"
+       y="629.9"
+       id="text208">
+      <tspan
+         x="557"
+         y="629.9"
+         id="tspan210">TCP/IP</tspan>
+      <tspan
+         x="557"
+         y="645.9"
+         id="tspan212">Server</tspan>
+    </text>
+  </g>
+  <g
+     id="g214">
+    <line
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x1="557"
+       y1="674.995"
+       x2="557"
+       y2="681.995"
+       id="line216" />
+    <polygon
+       style="fill: #000000"
+       points="552,681.995 557,691.995 562,681.995 "
+       id="polygon218" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       points="552,681.995 557,691.995 562,681.995 "
+       id="polygon220" />
+  </g>
+  <g
+     id="g222">
+    <rect
+       style="fill: #ffffff"
+       x="427"
+       y="814"
+       width="260"
+       height="80"
+       id="rect224" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="427"
+       y="814"
+       width="260"
+       height="80"
+       id="rect226" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="557"
+       y="857.9"
+       id="text228">
+      <tspan
+         x="557"
+         y="857.9"
+         id="tspan230">Render</tspan>
+    </text>
+  </g>
+  <g
+     id="g232">
+    <line
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x1="557"
+       y1="795.005"
+       x2="557"
+       y2="802.005"
+       id="line234" />
+    <polygon
+       style="fill: #000000"
+       points="552,802.005 557,812.005 562,802.005 "
+       id="polygon236" />
+    <polygon
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       points="552,802.005 557,812.005 562,802.005 "
+       id="polygon238" />
+  </g>
+  <g
+     id="g240">
+    <rect
+       style="fill: #ffffff"
+       x="867"
+       y="594"
+       width="260"
+       height="80"
+       id="rect242" />
+    <rect
+       style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000"
+       x="867"
+       y="594"
+       width="260"
+       height="80"
+       id="rect244" />
+    <text
+       font-size="12.8"
+       style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal"
+       x="997"
+       y="621.9"
+       id="text246">
+      <tspan
+         x="997"
+         y="621.9"
+         id="tspan248">Command</tspan>
+      <tspan
+         x="997"
+         y="637.9"
+         id="tspan250">Visualization</tspan>
+      <tspan
+         x="997"
+         y="653.9"
+         id="tspan252">Generator</tspan>
+    </text>
+  </g>
+</svg>
