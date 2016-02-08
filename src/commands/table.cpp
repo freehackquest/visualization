@@ -37,3 +37,7 @@ QString CommandTable::code(){
 void CommandTable::appendCode(QString line){
 	m_strCode << line;
 }
+
+void CommandTable::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
+	
+}

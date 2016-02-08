@@ -15,6 +15,7 @@ class CommandBackground : public ICommand {
 		virtual bool check(QString &strResult);
 		virtual QString code();
 		virtual void appendCode(QString);
+		virtual void run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection);
 	private:
 		QString m_strName;
 		QStringList m_listParams;

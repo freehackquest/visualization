@@ -37,3 +37,7 @@ QString CommandDraw::code(){
 void CommandDraw::appendCode(QString){
 	// this command is single line
 }
+
+void CommandDraw::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
+	
+}

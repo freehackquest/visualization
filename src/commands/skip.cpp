@@ -37,3 +37,7 @@ QString CommandSkip::code(){
 void CommandSkip::appendCode(QString){
 	// this command is single line
 }
+
+void CommandSkip::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
+	
+}

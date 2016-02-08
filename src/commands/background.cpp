@@ -36,4 +36,8 @@ QString CommandBackground::code(){
 
 void CommandBackground::appendCode(QString){
 	// this command is single line
-}
+};
+
+void CommandBackground::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
+};
+
