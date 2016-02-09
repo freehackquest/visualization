@@ -42,7 +42,6 @@ void Parser::parseLine(QString line){
 			if(!m_pTemporaryCommand->check(sCheck)){
 				m_pLogger->error("'" + strName + "'" + sCheck);
 			}
-
 			if(!m_bMultiLineCommand){
 				m_vCommands.push_back(m_pTemporaryCommand);
 			}

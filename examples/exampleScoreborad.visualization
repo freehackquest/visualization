@@ -1,7 +1,10 @@
 ## output 1280 720
 ## framerate 5
 
+pixel 100 100 FFFFFF
+fix
 background white
+fix
 skip 5
 background black
 skip 5

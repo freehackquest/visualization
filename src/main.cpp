@@ -69,6 +69,16 @@ int main(int argc, char *argv[]){
 	Frame *pFrame = new Frame(nWidth, nHeight);
 	DrawObjectsCollection *pDrawObjectsCollection = new DrawObjectsCollection();
 
+	while(true){
+		while(pInputThread->hasCommand()){
+			ICommand *pCommand = pInputThread->command();
+			pCommand->run(pFrame, pDrawObjectsCollection);
+		}
+		QThread::msleep(50);
+	};
+
+
+	/*
 	// Create seed for the random
 	// That is needed only once on application startup
 	QTime time = QTime::currentTime();
@@ -120,6 +130,6 @@ int main(int argc, char *argv[]){
 			}
 			pFrame->outputToStd();
 		}
-	}
+	}*/
 	return 0;
 }

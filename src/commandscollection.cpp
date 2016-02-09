@@ -3,14 +3,18 @@
 #include <QString>
 #include "commands/background.h"
 #include "commands/draw.h"
+#include "commands/fix.h"
 #include "commands/line.h"
+#include "commands/pixel.h"
 #include "commands/skip.h"
 #include "commands/table.h"
 
 CommandsCollection::CommandsCollection(){
 	registr(new CommandBackground());
 	registr(new CommandDraw());
+	registr(new CommandFix());
 	registr(new CommandLine());
+	registr(new CommandPixel());
 	registr(new CommandSkip());
 	registr(new CommandTable());
 };

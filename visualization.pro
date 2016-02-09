@@ -18,7 +18,9 @@ SOURCES += \
 	src/commandscollection.cpp \
 	src/commands/background.cpp \
 	src/commands/draw.cpp \
+	src/commands/fix.cpp \
 	src/commands/line.cpp \
+	src/commands/pixel.cpp \
 	src/commands/skip.cpp \
 	src/commands/table.cpp \
 	src/drawobjectscollection.cpp \
@@ -43,7 +45,9 @@ HEADERS += \
 	src/commandscollection.h \
 	src/commands/background.h \
 	src/commands/draw.h \
-	src/commands/line.cpp \
+	src/commands/fix.h \
+	src/commands/line.h \
+	src/commands/pixel.h \
 	src/commands/skip.h \
 	src/commands/table.h \
 	src/drawobjectscollection.h \
