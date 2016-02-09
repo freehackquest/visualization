@@ -15,15 +15,12 @@ class Parser {
 		void parse(QString line);
 		bool hasCommand();
 		ICommand* command();
-		void reset();
 	private:
 		void parseLine(QString line);
 		bool m_bCommandCompleted;
 		bool m_bMultiLineCommand;
 		QString removeComment(QString);
 		QStringList m_listCode;
-		QString m_strCommandName;
-		QStringList m_listSingleLineCommands;
 		QVector<ICommand*> m_vCommands;
 		ICommand* m_pTemporaryCommand;
 		Logger *m_pLogger;

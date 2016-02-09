@@ -2,7 +2,6 @@
 #include <iostream>
 
 Parser::Parser(){
-	this->reset();
 	m_pLogger = new Logger();
 	m_pCommandsCollection = new CommandsCollection();
 	m_bMultiLineCommand = false;
@@ -10,18 +9,6 @@ Parser::Parser(){
 
 void Parser::setLogger(Logger *pLogger){
 	m_pLogger = pLogger;
-};
-
-void Parser::reset(){
-	m_strCommandName = "";
-	m_listCode.clear();
-	m_listSingleLineCommands
-		<< "draw"
-		<< "wait"
-		<< "line"
-		<< "skip"
-		<< "rect"
-		<< "pixel";
 };
 
 void Parser::parse(QString code){
