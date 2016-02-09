@@ -33,7 +33,7 @@ ICommand *InputThread::command(){
 void InputThread::pushCommand(ICommand *pCommand){
 	QMutexLocker lock(&m_Mutex);
 	m_vCommands.push_back(pCommand);
-	m_pLogger->debug("PUSHED COMMAND: " + pCommand->code());
+	// m_pLogger->debug("PUSHED COMMAND: " + pCommand->code());
 };
 
 void InputThread::run(){

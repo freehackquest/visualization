@@ -12,7 +12,7 @@ bool CommandBackground::isMultiLine(){
 ICommand *CommandBackground::create(){
 	return new CommandBackground();
 };
-	
+
 QString CommandBackground::name(){
 	return "background";
 };
