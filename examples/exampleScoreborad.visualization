@@ -3,15 +3,25 @@
 
 pixel 100 100 FFFFFF
 fix
-background white
+pixel 100 101 FFFFFF
+fix
+pixel 100 102 FFFFFF
+fix
+pixel 100 103 FFFFFF
+fix
+pixel 100 104 FFFFFF
+fix
+pixel 100 105 FFFFFF
+fix
+background FFFFFF
 fix
 skip 5
-background black
+background 000000
 skip 5
-background red
+background C3C3C3
 skip 5
-background black
-draw title sibirctf "21-22 May 2015"
+background 000000
+text sibirctf "21-22 May 2015"
 skip 5
 
 #line

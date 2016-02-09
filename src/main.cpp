@@ -74,10 +74,9 @@ int main(int argc, char *argv[]){
 			ICommand *pCommand = pInputThread->command();
 			pCommand->run(pFrame, pDrawObjectsCollection);
 		}
-		QThread::msleep(50);
+		QThread::msleep(100);
+		pFrame->outputToStd();
 	};
-
-
 	/*
 	// Create seed for the random
 	// That is needed only once on application startup

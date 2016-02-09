@@ -19,6 +19,9 @@ class CommandSkip : public ICommand {
 	private:
 		QString m_strName;
 		QStringList m_listParams;
+		int m_nCount;
+		QString m_sCheck;
+		bool m_bCheck;
 };
 
 #endif // COMMAND_SKIP_H
