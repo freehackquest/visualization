@@ -51,7 +51,11 @@ void Parser::parseLine(QString line){
 			
 			list.removeAt(0);
 			m_pTemporaryCommand->setParams(list);
-				
+			QString sCheck = "";
+			if(!m_pTemporaryCommand->check(sCheck)){
+				m_pLogger->error("'" + strName + "'" + sCheck);
+			}
+
 			if(!m_bMultiLineCommand){
 				m_vCommands.push_back(m_pTemporaryCommand);
 			}

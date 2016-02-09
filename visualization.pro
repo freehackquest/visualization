@@ -16,9 +16,10 @@ SOURCES += \
 	src/inputThread.cpp \
 	src/parser.cpp \
 	src/commandscollection.cpp \
-	src/commands/draw.cpp \
-	src/commands/skip.cpp \
 	src/commands/background.cpp \
+	src/commands/draw.cpp \
+	src/commands/line.cpp \
+	src/commands/skip.cpp \
 	src/commands/table.cpp \
 	src/drawobjectscollection.cpp \
 	src/drawobjects/blackFillFrame.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
 	src/drawobjects/h1_T_lower.cpp \
 	src/drawobjects/whiteBorderFrame.cpp \
 
+
 HEADERS += \
 	src/idrawobject.h \
 	src/icommand.h \
@@ -39,9 +41,10 @@ HEADERS += \
 	src/inputThread.h \
 	src/parser.h \
 	src/commandscollection.h \
-	src/commands/draw.h \
-	src/commands/skip.h \
 	src/commands/background.h \
+	src/commands/draw.h \
+	src/commands/line.cpp \
+	src/commands/skip.h \
 	src/commands/table.h \
 	src/drawobjectscollection.h \
 	src/drawobjects/blackFillFrame.h \

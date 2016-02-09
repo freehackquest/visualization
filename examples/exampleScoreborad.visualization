@@ -11,6 +11,13 @@ background black
 draw title sibirctf "21-22 May 2015"
 skip 5
 
+#line
+#line a 0 100 100 1 FFFFFF
+#line 0 0 100 b 1 FFFFFF
+#line 0 0 100 100 -1 FFFFFF
+#line 0 0 100 100 1 0xFFFFFF
+line 0 0 100 100 1 FFFFFF
+
 table score
 	place team score
 	1 suslopas 3768.62

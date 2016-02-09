@@ -1,15 +1,17 @@
 #include "commandscollection.h"
 #include <iostream>
 #include <QString>
-#include "commands/draw.h"
-#include "commands/skip.h"
 #include "commands/background.h"
+#include "commands/draw.h"
+#include "commands/line.h"
+#include "commands/skip.h"
 #include "commands/table.h"
 
 CommandsCollection::CommandsCollection(){
-	registr(new CommandDraw());
-	registr(new CommandSkip());
 	registr(new CommandBackground());
+	registr(new CommandDraw());
+	registr(new CommandLine());
+	registr(new CommandSkip());
 	registr(new CommandTable());
 };
 
