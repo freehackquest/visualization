@@ -1,3 +1,6 @@
+# Install Qt 5 on Ubuntu
+	$ sudo apt-get install qtbase5-dev
+
 # Build
 	$ qmake
 	$ make
@@ -45,11 +48,11 @@ Use character ```#``` for your comments
 
 Usage: ```skip <count>```
 
-## Draw object
+## Fix frame (send to output)
 
-Usage: ```draw <object> [<params>]```
+Usage: ```fix```
 
-## Colors
+## Color
 
 In the system used rgb spec:
 * FFFFFF == RGB
@@ -61,18 +64,32 @@ In the system used rgb spec:
 * red
 * green
 
+## line
+
+Usage: ```line <number-x1> <number-y1> <number-x2> <number-y2> <number-width> <color>```
+
+## pixel
+
+Usage: ```line <number-x1> <number-y1> <color>```
+
+## Draw object
+
+Usage: ```draw <object> [<params>]```
+
+## Fill background
+
+Usage: ```background <color>```
+
 ## Predefined objects
 
 ### background
-Usage: ```draw background <color>```
+Usage: ```background <color>```
+
 Examples:
-* draw background 000000
-* draw background FFFFFF
-* draw background red
+* background 000000
+* background FFFFFF
+* background red
 
-### line
-
-Usage: ```draw line <number-x1> <number-y1> <number-x2> <number-y2> <number-width> <color>```
 
 ### rect
 
