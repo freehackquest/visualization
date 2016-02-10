@@ -16,7 +16,7 @@
 
 #include "drawobjectscollection.h"
 #include "frame.h"
-#include "inputThread.h"
+#include "inputStreamCommands.h"
 #include "logger.h"
 
 int main(int argc, char *argv[]){
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
 	for(int i = 0; i < argc; i++){
 		params.push_back(argv[i]);
 	}
-	
+
 	{
 		int n = params.indexOf("--convert-image");
 		if(n > 0 && n+1 < params.size()){
@@ -61,9 +61,9 @@ int main(int argc, char *argv[]){
 	if(params.indexOf("--disablelog") >= 0)
 		pLogger->disable();
 	
-	InputThread *pInputThread = new InputThread();
-	pInputThread->setLogger(pLogger);
-	pInputThread->start();
+	InputStreamCommands *pInputStreamCommands = new InputStreamCommands();
+	pInputStreamCommands->setLogger(pLogger);
+	pInputStreamCommands->start(33333); // started server on 31001 port 
 
 	int nFrameRate = 5;
 	int nSeconds = -1;
@@ -101,14 +101,17 @@ int main(int argc, char *argv[]){
 	Frame *pFrame = new Frame(nWidth, nHeight);
 	DrawObjectsCollection *pDrawObjectsCollection = new DrawObjectsCollection();
 
+	return app.exec();
+
 	while(true){
-		while(pInputThread->hasCommand()){
-			ICommand *pCommand = pInputThread->command();
+		while(pInputStreamCommands->hasCommand()){
+			ICommand *pCommand = pInputStreamCommands->command();
 			pCommand->run(pFrame, pDrawObjectsCollection);
 			pLogger->debug("Executed " + pCommand->code());
 		}
-		QThread::msleep(100);
-		pFrame->outputToStd();
+		QThread::msleep(1000);
+		std::cout << "wait\n";
+		// pFrame->outputToStd();
 	};
 
 	/*

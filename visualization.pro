@@ -1,7 +1,4 @@
-QT += core
-QT += gui
-QT += widgets
-QT += sql
+QT += gui core network widgets
 
 TARGET = visualization
 CONFIG += console release app_bundle
@@ -13,7 +10,7 @@ SOURCES += \
 	src/main.cpp \
 	src/logger.cpp \
 	src/frame.cpp \
-	src/inputThread.cpp \
+	src/inputStreamCommands.cpp \
 	src/parser.cpp \
 	src/commandscollection.cpp \
 	src/commands/background.cpp \
@@ -40,7 +37,7 @@ HEADERS += \
 	src/icommand.h \
 	src/logger.h \
 	src/frame.h \
-	src/inputThread.h \
+	src/inputStreamCommands.h \
 	src/parser.h \
 	src/commandscollection.h \
 	src/commands/background.h \
