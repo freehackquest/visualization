@@ -11,6 +11,7 @@ SOURCES += \
 	src/logger.cpp \
 	src/frame.cpp \
 	src/inputStreamCommands.cpp \
+	src/outputStream.cpp \
 	src/parser.cpp \
 	src/commandscollection.cpp \
 	src/commands/background.cpp \
@@ -38,6 +39,7 @@ HEADERS += \
 	src/logger.h \
 	src/frame.h \
 	src/inputStreamCommands.h \
+	src/outputStream.h \
 	src/parser.h \
 	src/commandscollection.h \
 	src/commands/background.h \
@@ -58,4 +60,3 @@ HEADERS += \
 	src/drawobjects/h1_T_lower.h \
 	src/drawobjects/whiteBorderFrame.h \
 	
-

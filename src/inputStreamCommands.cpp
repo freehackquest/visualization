@@ -57,7 +57,6 @@ void InputStreamCommands::pushCode(QString strCode){
 };
 
 void InputStreamCommands::slotReadClient(){
-	m_pLogger->info("Recived data");
 	QTextStream os(m_pTcpSocket);
 	os.setAutoDetectUnicode(true);
 	os << "OK\n";

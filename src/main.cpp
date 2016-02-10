@@ -17,6 +17,7 @@
 #include "drawobjectscollection.h"
 #include "frame.h"
 #include "inputStreamCommands.h"
+#include "outputStream.h"
 #include "logger.h"
 
 int main(int argc, char *argv[]){
@@ -61,58 +62,17 @@ int main(int argc, char *argv[]){
 	if(params.indexOf("--disablelog") >= 0)
 		pLogger->disable();
 	
+	OutputStream *pOutputStream = new OutputStream();
+	pOutputStream->setLogger(pLogger);
 	InputStreamCommands *pInputStreamCommands = new InputStreamCommands();
 	pInputStreamCommands->setLogger(pLogger);
-	pInputStreamCommands->start(33333); // started server on 31001 port 
+	pInputStreamCommands->start(31001); // started server on 31001 port 
 
-	int nFrameRate = 5;
-	int nSeconds = -1;
-	int nWidth = 1280;
-	int nHeight = 720;
-
-	{
-		int n = params.indexOf("--framerate");
-		if(n > 0 && n+1 < params.size()){
-			nFrameRate = params[n+1].toInt();
-		}
-	}
-
-	{
-		int n = params.indexOf("--time");
-		if(n > 0 && n+1 < params.size()){
-			nSeconds = params[n+1].toInt();
-		}
-	}
-
-	{
-		int n = params.indexOf("--width");
-		if(n > 0 && n+1 < params.size()){
-			nWidth = params[n+1].toInt();
-		}
-	}
-
-	{
-		int n = params.indexOf("--height");
-		if(n > 0 && n+1 < params.size()){
-			nHeight = params[n+1].toInt();
-		}
-	}
-
-	Frame *pFrame = new Frame(nWidth, nHeight);
-	DrawObjectsCollection *pDrawObjectsCollection = new DrawObjectsCollection();
+	pOutputStream->setInputStream(pInputStreamCommands);
+	pOutputStream->setParams(params);
+	pOutputStream->start();
 
 	return app.exec();
-
-	while(true){
-		while(pInputStreamCommands->hasCommand()){
-			ICommand *pCommand = pInputStreamCommands->command();
-			pCommand->run(pFrame, pDrawObjectsCollection);
-			pLogger->debug("Executed " + pCommand->code());
-		}
-		QThread::msleep(1000);
-		std::cout << "wait\n";
-		// pFrame->outputToStd();
-	};
 
 	/*
 	// Create seed for the random
