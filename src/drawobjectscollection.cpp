@@ -12,14 +12,14 @@
 #include <iostream>
 
 DrawObjectsCollection::DrawObjectsCollection(){
-	 registr(new DrawObject_blackFillFrame());
-	 registr(new DrawObject_h1_C_upper());
-	 registr(new DrawObject_h1_T_upper());
-	 registr(new DrawObject_h1_F_upper());
-	 registr(new DrawObject_h1_I_lower());
-	 registr(new DrawObject_h1_G_lower());
-	 registr(new DrawObject_h1_H_lower());
-	 registr(new DrawObject_h1_T_lower());
+	registr(new DrawObject_blackFillFrame());
+	registr(new DrawObject_h1_C_upper());
+	registr(new DrawObject_h1_T_upper());
+	registr(new DrawObject_h1_F_upper());
+	registr(new DrawObject_h1_I_lower());
+	registr(new DrawObject_h1_G_lower());
+	registr(new DrawObject_h1_H_lower());
+	registr(new DrawObject_h1_T_lower());
 	registr(new DrawObject_whiteBorderFrame());	 
 };
 
@@ -33,4 +33,3 @@ bool DrawObjectsCollection::draw(QString name, Frame *pFrame, int nX, int nY){
 	m_mDrawObjects[name]->draw(pFrame, nX, nY);
 	return true;
 }
-

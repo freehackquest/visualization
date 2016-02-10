@@ -18,6 +18,9 @@ class CommandBackground : public ICommand {
 		virtual void run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection);
 	private:
 		QString m_strName;
+		bool m_bCheck;
+		QString m_sCheck;
+		int m_nColor;
 		QStringList m_listParams;
 };
 

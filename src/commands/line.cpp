@@ -112,6 +112,32 @@ void CommandLine::appendCode(QString){
 };
 
 void CommandLine::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
-	if(m_bCheck) return;
+	if(!m_bCheck) return;
+	
+	int diffX = m_nX2 - m_nX1;
+	int diffY = m_nY2 - m_nY1;
+	double dX = 0;
+	double dY = 0;
+	int nLength = 0;
+
+	if(std::abs(diffX) > std::abs(diffY)){
+		dX = diffX < 0 ? -1 : 1;
+		dY = double(diffY)/double(diffX);
+		dY = diffY < 0 ? dY : -1*dY;
+		nLength = std::abs(diffX);
+	}else{
+		dX = double(diffX)/double(diffY);
+		dX = diffX < 0 ? -1*dX : dX;
+		dY = diffY < 0 ? -1 : 1;
+		nLength = std::abs(diffY);
+	}
+
+	double x = m_nX1;
+	double y = m_nY1;
+	for(int i = 0; i < nLength; i++){
+		x=x+dX;
+		y=y+dY;
+		pFrame->setPixel(int(x),int(y),m_nColor);
+	}
 };
 
