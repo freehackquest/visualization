@@ -17,6 +17,7 @@ class CommandLine : public ICommand {
 		virtual void appendCode(QString);
 		virtual void run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection);
 	private:
+		int distance(int x1, int x2);
 		QString m_strName;
 		QStringList m_listParams;
 		int m_nX1;

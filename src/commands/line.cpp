@@ -111,32 +111,37 @@ void CommandLine::appendCode(QString){
 	// this command is single line
 };
 
+int CommandLine::distance(int x1, int x2){
+	if(x2 > x1)
+		return x2-x1;
+	return x1-x2;
+}
+
 void CommandLine::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
 	if(!m_bCheck) return;
 	
-	int diffX = m_nX2 - m_nX1;
-	int diffY = m_nY2 - m_nY1;
-	double dX = 0;
-	double dY = 0;
+	int nDistanceX = distance(m_nX2,m_nX1);
+	int nDistanceY = distance(m_nY2,m_nY1);
+	double nDX = 1;
+	double nDY = 1;
 	int nLength = 0;
 
-	if(std::abs(diffX) > std::abs(diffY)){
-		dX = diffX < 0 ? -1 : 1;
-		dY = double(diffY)/double(diffX);
-		dY = diffY < 0 ? dY : -1*dY;
-		nLength = std::abs(diffX);
+	if(nDistanceX > nDistanceY){
+		nDY = double(nDistanceY)/double(nDistanceX);
+		nLength = nDistanceX;
 	}else{
-		dX = double(diffX)/double(diffY);
-		dX = diffX < 0 ? -1*dX : dX;
-		dY = diffY < 0 ? -1 : 1;
-		nLength = std::abs(diffY);
+		nDX = double(nDistanceX)/double(nDistanceY);
+		nLength = nDistanceY;
 	}
 
+	nDX = m_nX2 > m_nX1 ? nDX : -1*nDX;
+	nDY = m_nY2 > m_nY1 ? nDY : -1*nDY;
+		
 	double x = m_nX1;
 	double y = m_nY1;
 	for(int i = 0; i < nLength; i++){
-		x=x+dX;
-		y=y+dY;
+		x=x+nDX;
+		y=y+nDY;
 		pFrame->setPixel(int(x),int(y),m_nColor);
 	}
 };

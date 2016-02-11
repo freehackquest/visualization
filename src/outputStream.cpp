@@ -46,7 +46,7 @@ void OutputStream::run(){
 			pCommand->run(m_pFrame, m_pDrawObjectsCollection);
 			m_pLogger->debug("Executed " + pCommand->code());
 		}
-		QThread::msleep(100);
+		QThread::msleep(200);
 		m_pFrame->outputToStd();
 	};
 };
