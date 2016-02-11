@@ -21,6 +21,7 @@ SOURCES += \
 	src/commands/pixel.cpp \
 	src/commands/skip.cpp \
 	src/commands/table.cpp \
+	src/commands/text.cpp \
 	src/drawobjectscollection.cpp \
 	src/drawobjects/blackFillFrame.cpp \
 	src/drawobjects/h1_C_upper.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
 	src/commands/pixel.h \
 	src/commands/skip.h \
 	src/commands/table.h \
+	src/commands/text.h \
 	src/drawobjectscollection.h \
 	src/drawobjects/blackFillFrame.h \
 	src/drawobjects/h1_C_upper.h \

@@ -8,6 +8,7 @@
 #include "commands/pixel.h"
 #include "commands/skip.h"
 #include "commands/table.h"
+#include "commands/text.h"
 
 CommandsCollection::CommandsCollection(){
 	registr(new CommandBackground());
@@ -17,6 +18,7 @@ CommandsCollection::CommandsCollection(){
 	registr(new CommandPixel());
 	registr(new CommandSkip());
 	registr(new CommandTable());
+	registr(new CommandText());
 };
 
 bool CommandsCollection::contains(QString name){
