@@ -1,4 +1,5 @@
 #include "line.h"
+#include "../helpersLine.h"
 #include <iostream>
 #include <QString>
 
@@ -119,30 +120,6 @@ int CommandLine::distance(int x1, int x2){
 
 void CommandLine::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
 	if(!m_bCheck) return;
-	
-	int nDistanceX = distance(m_nX2,m_nX1);
-	int nDistanceY = distance(m_nY2,m_nY1);
-	double nDX = 1;
-	double nDY = 1;
-	int nLength = 0;
-
-	if(nDistanceX > nDistanceY){
-		nDY = double(nDistanceY)/double(nDistanceX);
-		nLength = nDistanceX;
-	}else{
-		nDX = double(nDistanceX)/double(nDistanceY);
-		nLength = nDistanceY;
-	}
-
-	nDX = m_nX2 > m_nX1 ? nDX : -1*nDX;
-	nDY = m_nY2 > m_nY1 ? nDY : -1*nDY;
-		
-	double x = m_nX1;
-	double y = m_nY1;
-	for(int i = 0; i < nLength; i++){
-		x=x+nDX;
-		y=y+nDY;
-		pFrame->setPixel(int(x),int(y),m_nColor);
-	}
+	HelpersLine::draw(pFrame, m_nX1, m_nY1, m_nX2, m_nY2, m_nWidth, m_nColor);
 };
 

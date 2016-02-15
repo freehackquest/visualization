@@ -32,6 +32,8 @@ SOURCES += \
 	src/drawobjects/h1_H_lower.cpp \
 	src/drawobjects/h1_T_lower.cpp \
 	src/drawobjects/whiteBorderFrame.cpp \
+	src/helpersLine.cpp \
+	src/helpersParseArgs.cpp \
 
 
 HEADERS += \
@@ -61,4 +63,6 @@ HEADERS += \
 	src/drawobjects/h1_H_lower.h \
 	src/drawobjects/h1_T_lower.h \
 	src/drawobjects/whiteBorderFrame.h \
+	src/helpersLine.h \
+	src/helpersParseArgs.h \
 	

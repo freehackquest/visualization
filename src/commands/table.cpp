@@ -1,6 +1,9 @@
 #include "table.h"
+#include "../helpersLine.h"
+#include "../helpersParseArgs.h"
 #include <iostream>
 #include <QString>
+#include <QVector>
 
 CommandTable::CommandTable(){
 };
@@ -12,7 +15,7 @@ bool CommandTable::isMultiLine(){
 ICommand *CommandTable::create(){
 	return new CommandTable();
 };
-	
+
 QString CommandTable::name(){
 	return "table";
 };
@@ -31,13 +34,89 @@ bool CommandTable::check(QString &strResult){
 };
 
 QString CommandTable::code(){
-	return name() + " " + m_listParams.join(" ") + "\n\t" + m_strCode.join("\n\t") + "\n" + name() + " end";
+	return name() + " " + m_listParams.join(" ") + "\n\t" + m_listCode.join("\n\t") + "\n" + name() + " end";
 }
 
 void CommandTable::appendCode(QString line){
-	m_strCode << line;
-}
+	m_listCode << line;
+};
 
-void CommandTable::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
+void CommandTable::drawGrid(Frame *pFrame, int nX, int nY, QVector<int> &vColumnsWidth, int nRows, int nRowHeight, int nWidth, int nColor){
+	int nRowWidth = 0;
+	for(int i = 0; i < vColumnsWidth.size(); i++){
+		nRowWidth += vColumnsWidth[i];
+	}
+	int nRowsHeight = nRows*nRowHeight;
+
+	// simple center
+	int nTmpX = nX;
+	int nTmpY = nY;
+	for(int i = 0; i < nRows; i++){
+		HelpersLine::draw(pFrame, nTmpX, nTmpY, nTmpX + nRowWidth, nTmpY, nWidth, nColor);
+		nTmpY += nRowHeight;
+	}
+	HelpersLine::draw(pFrame, nTmpX, nTmpY, nTmpX + nRowWidth, nTmpY, nWidth, nColor);
+
+	nTmpX = nX;
+	nTmpY = nY;
+	for(int i = 0; i < vColumnsWidth.size(); i++){
+		HelpersLine::draw(pFrame, nTmpX, nTmpY, nTmpX, nTmpY + nRowsHeight, nWidth, nColor);
+		nTmpX += vColumnsWidth[i];
+	}
+	HelpersLine::draw(pFrame, nTmpX, nTmpY, nTmpX, nTmpY + nRowsHeight, nWidth, nColor);
+};
+
+void CommandTable::run(Frame *pFrame, DrawObjectsCollection *){
+	int nWidth = pFrame->width();
+	int nHeight = pFrame->height();
+	int nColor = 0x9aff92;
+	int nLineWidth = 1;
+	int nFont = 20;
+	int nPadding = 5;
+	int nBorderPadding = 10;
+	QString sFontName = "first";
+	HelpersLine::draw(pFrame,        nBorderPadding,         nBorderPadding,        nBorderPadding, nHeight-nBorderPadding, nLineWidth, nColor);
+	HelpersLine::draw(pFrame,        nBorderPadding, nHeight-nBorderPadding, nWidth-nBorderPadding, nHeight-nBorderPadding, nLineWidth, nColor);
+	HelpersLine::draw(pFrame, nWidth-nBorderPadding, nHeight-nBorderPadding, nWidth-nBorderPadding,         nBorderPadding, nLineWidth, nColor);
+	HelpersLine::draw(pFrame, nWidth-nBorderPadding,         nBorderPadding,        nBorderPadding,         nBorderPadding, nLineWidth, nColor);
 	
+	if(m_listCode.size() == 0)
+		return;
+	
+	QStringList listHeaders = HelpersParseArgs::parse(m_listCode[0]);
+	if(listHeaders.size() == 0)
+		return;
+
+	QVector<int> vColumnsWidth;
+	for(int i = 0; i < listHeaders.size(); i++){
+		listHeaders[i] = listHeaders[i].trimmed();
+		vColumnsWidth.push_back(listHeaders[i].length());
+	}
+	
+	for(int i = 0; i < m_listCode.size(); i++){
+		QStringList listColumns = HelpersParseArgs::parse(m_listCode[i]);
+		int cols = std::min(listColumns.size(), vColumnsWidth.size());
+		for(int x = 0; x < cols; x++){
+			vColumnsWidth[x] = std::max(listColumns[x].length(), vColumnsWidth[x]);
+		}
+	}
+	
+	int nRowWidth = 0;
+	
+	for(int i = 0; i < vColumnsWidth.size(); i++){
+		vColumnsWidth[i] = vColumnsWidth[i]*(nFont + 2*nPadding);
+		nRowWidth += vColumnsWidth[i];
+	}
+
+	int nRows = m_listCode.size()-1;
+	int nRowHeight = nFont + 2*nPadding; // header
+	int nRowsHeight = nRows*nRowHeight;
+
+	if((nRowsHeight + nRowHeight) < nHeight){
+		int nX = (nWidth - nRowWidth - 2*nBorderPadding)/2 + nBorderPadding;
+		int nY = (nHeight - nRowHeight - nRowsHeight - 2*nBorderPadding)/2 + nBorderPadding;
+		drawGrid(pFrame, nX, nY, vColumnsWidth, nRows, nRowHeight, nLineWidth, nColor);
+	}else{
+		
+	}
 }
