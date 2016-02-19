@@ -1,6 +1,7 @@
 #include "table.h"
 #include "../helpersLine.h"
 #include "../helpersParseArgs.h"
+#include "../helpersText.h"
 #include <iostream>
 #include <QString>
 #include <QVector>
@@ -69,12 +70,13 @@ void CommandTable::drawGrid(Frame *pFrame, int nX, int nY, QVector<int> &vColumn
 void CommandTable::run(Frame *pFrame, DrawObjectsCollection *){
 	int nWidth = pFrame->width();
 	int nHeight = pFrame->height();
-	int nColor = 0x9aff92;
+	int nColor = 0xC8C8C8;
 	int nLineWidth = 1;
-	int nFont = 20;
+	int nFontSize = 20;
 	int nPadding = 5;
 	int nBorderPadding = 10;
-	QString sFontName = "first";
+	QString sFontName = "monospace";
+
 	HelpersLine::draw(pFrame,        nBorderPadding,         nBorderPadding,        nBorderPadding, nHeight-nBorderPadding, nLineWidth, nColor);
 	HelpersLine::draw(pFrame,        nBorderPadding, nHeight-nBorderPadding, nWidth-nBorderPadding, nHeight-nBorderPadding, nLineWidth, nColor);
 	HelpersLine::draw(pFrame, nWidth-nBorderPadding, nHeight-nBorderPadding, nWidth-nBorderPadding,         nBorderPadding, nLineWidth, nColor);
@@ -104,18 +106,28 @@ void CommandTable::run(Frame *pFrame, DrawObjectsCollection *){
 	int nRowWidth = 0;
 	
 	for(int i = 0; i < vColumnsWidth.size(); i++){
-		vColumnsWidth[i] = vColumnsWidth[i]*(nFont + 2*nPadding);
+		vColumnsWidth[i] = vColumnsWidth[i]*(nFontSize + 2*nPadding);
 		nRowWidth += vColumnsWidth[i];
 	}
 
 	int nRows = m_listCode.size()-1;
-	int nRowHeight = nFont + 2*nPadding; // header
+	int nRowHeight = nFontSize + 2*nPadding; // header
 	int nRowsHeight = nRows*nRowHeight;
 
 	if((nRowsHeight + nRowHeight) < nHeight){
 		int nX = (nWidth - nRowWidth - 2*nBorderPadding)/2 + nBorderPadding;
 		int nY = (nHeight - nRowHeight - nRowsHeight - 2*nBorderPadding)/2 + nBorderPadding;
 		drawGrid(pFrame, nX, nY, vColumnsWidth, nRows, nRowHeight, nLineWidth, nColor);
+		
+		HelpersText::draw(
+			pFrame,
+			nX + nBorderPadding,
+			nY + nBorderPadding/2,
+			nColor,
+			sFontName,
+			nFontSize,
+			QString("0123456789")
+		);
 	}else{
 		
 	}

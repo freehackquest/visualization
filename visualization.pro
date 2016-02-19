@@ -35,6 +35,7 @@ SOURCES += \
 	src/drawobjects/whiteBorderFrame.cpp \
 	src/helpersLine.cpp \
 	src/helpersParseArgs.cpp \
+	src/helpersText.cpp \
 
 HEADERS += \
 	src/idrawobject.h \
@@ -66,4 +67,5 @@ HEADERS += \
 	src/drawobjects/whiteBorderFrame.h \
 	src/helpersLine.h \
 	src/helpersParseArgs.h \
+	src/helpersText.h \
 	

@@ -5,14 +5,14 @@ from time import sleep
 from random import randint
 
 #host="localhost"
-host="192.168.1.2"
+host="localhost"
 port=31001
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host, port))
 print s.recv(2048)
 while True:
 	s.send("background 303030\n")
-	rows = random.randint(3,30)
+	rows = random.randint(3,20)
 	print rows
 	i = 0
 	s.send("table C8C8C8\n")
