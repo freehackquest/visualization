@@ -28,6 +28,7 @@
 # How to RTMP server up
 
 https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/
+https://www.vultr.com/docs/setup-nginx-rtmp-on-ubuntu-14-04
 
 # Run example to RTMP server
 
