@@ -3,8 +3,8 @@
 #include <iostream>
 #include <QString>
 #include <QMutexLocker>
-#include <QTcpServer>
-		
+#include <QElapsedTimer>
+
 OutputStream::OutputStream(){
 	m_pLogger = new Logger();
 };
@@ -13,40 +13,25 @@ void OutputStream::setLogger(Logger *pLogger){
 	m_pLogger = pLogger;
 };
 
-void OutputStream::setParams(QVector<QString> &params){
-	int nWidth = 1280;
-	int nHeight = 720;
-
-	{
-		int n = params.indexOf("--width");
-		if(n > 0 && n+1 < params.size()){
-			nWidth = params[n+1].toInt();
-		}
-	}
-
-	{
-		int n = params.indexOf("--height");
-		if(n > 0 && n+1 < params.size()){
-			nHeight = params[n+1].toInt();
-		}
-	}
-
-	m_pFrame = new Frame(nWidth, nHeight);
-	m_pDrawObjectsCollection = new DrawObjectsCollection();
-};
-
-void OutputStream::setInputStream(InputStreamCommands *pInputStreamCommands){
-	m_pInputStreamCommands = pInputStreamCommands;
+void OutputStream::setFrame(Frame *pFrame){
+	m_pOutputFrame = pFrame;
 };
 
 void OutputStream::run(){
+	QElapsedTimer timer;
+	timer.start();
+	qint64 nExpected = 0;
 	while(true){
-		while(m_pInputStreamCommands->hasCommand()){
-			ICommand *pCommand = m_pInputStreamCommands->command();
-			pCommand->run(m_pFrame, m_pDrawObjectsCollection);
-			m_pLogger->debug("Executed " + pCommand->code());
+		m_pOutputFrame->outputToStd();
+		nExpected += 200; // 5 fps
+		qint64 nElapsed = timer.elapsed();
+		qint64 nDiff = nExpected - nElapsed;
+
+		if(nDiff >= 0){
+			QThread::msleep(nDiff);
+		}else{
+			m_pLogger->error("Elapsed more then Expected: " + QString::number(-1*nDiff));
+			continue;
 		}
-		QThread::msleep(200);
-		m_pFrame->outputToStd();
 	};
 };

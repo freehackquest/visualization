@@ -17,6 +17,7 @@
 #include "drawobjectscollection.h"
 #include "frame.h"
 #include "inputStreamCommands.h"
+#include "renderStream.h"
 #include "outputStream.h"
 #include "logger.h"
 
@@ -61,15 +62,24 @@ int main(int argc, char *argv[]){
 	pLogger->info("visualization started.");
 	if(params.indexOf("--disablelog") >= 0)
 		pLogger->disable();
+
+	InputStreamCommands *pInputStreamCommands = new InputStreamCommands();
+	pInputStreamCommands->setLogger(pLogger);
+	
+	RenderStream *pRenderStream = new RenderStream();
+	pRenderStream->setLogger(pLogger);
 	
 	OutputStream *pOutputStream = new OutputStream();
 	pOutputStream->setLogger(pLogger);
-	InputStreamCommands *pInputStreamCommands = new InputStreamCommands();
-	pInputStreamCommands->setLogger(pLogger);
+
+
 	pInputStreamCommands->start(31001); // started server on 31001 port 
 
-	pOutputStream->setInputStream(pInputStreamCommands);
-	pOutputStream->setParams(params);
+	pRenderStream->setInputStream(pInputStreamCommands);
+	pRenderStream->setParams(params);
+	pRenderStream->start();
+
+	pOutputStream->setFrame(pRenderStream->outputFrame());
 	pOutputStream->start();
 
 	return app.exec();

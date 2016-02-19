@@ -11,11 +11,11 @@ s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host, port))
 print s.recv(2048)
 while True:
-	s.send("background 000000\n")
+	s.send("background 303030\n")
 	rows = random.randint(3,30)
 	print rows
 	i = 0
-	s.send("table test\n")
+	s.send("table C8C8C8\n")
 	s.send("№ Team Attack Defence Summary\n")
 	while i < rows:
 		row = str(i+1) + " "

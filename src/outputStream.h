@@ -16,15 +16,12 @@ class OutputStream : public QThread{
 		Q_OBJECT
 	public:
 		OutputStream();
-		void setParams(QVector<QString> &params);
 		void setLogger(Logger *pLogger);
-		void setInputStream(InputStreamCommands *pInputStreamCommands);
+		void setFrame(Frame *m_pOuputFrame);
 		void run();
 	private:
 		Logger *m_pLogger;
-		Frame *m_pFrame;
-		DrawObjectsCollection *m_pDrawObjectsCollection;
-		InputStreamCommands *m_pInputStreamCommands;
+		Frame *m_pOutputFrame;
 };
 
 #endif // OUTPUTSTREAM_H

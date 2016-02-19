@@ -11,6 +11,7 @@ SOURCES += \
 	src/logger.cpp \
 	src/frame.cpp \
 	src/inputStreamCommands.cpp \
+	src/renderStream.cpp \
 	src/outputStream.cpp \
 	src/parser.cpp \
 	src/commandscollection.cpp \
@@ -35,13 +36,13 @@ SOURCES += \
 	src/helpersLine.cpp \
 	src/helpersParseArgs.cpp \
 
-
 HEADERS += \
 	src/idrawobject.h \
 	src/icommand.h \
 	src/logger.h \
 	src/frame.h \
 	src/inputStreamCommands.h \
+	src/renderStream.h \
 	src/outputStream.h \
 	src/parser.h \
 	src/commandscollection.h \
