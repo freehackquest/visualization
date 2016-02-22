@@ -21,6 +21,7 @@ class OutputStream : public QThread{
 		void setFrame(Frame *m_pOuputFrame);
 		void run();
 	private:
+		void generateFHQVisualizationPreview();
 		Logger *m_pLogger;
 		Frame *m_pOutputFrame;
 		QVector<QImage *> m_vFrames;

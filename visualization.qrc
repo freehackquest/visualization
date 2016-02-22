@@ -1,6 +1,7 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
 <qresource>
-    <file>images/fhq2015.png</file>
+	<file>images/fhq2015.png</file>
+	<file>fonts/hack.regular.ttf</file>
 </qresource>
 </RCC>

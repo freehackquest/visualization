@@ -1,32 +1,64 @@
-
 #include "outputStream.h"
 #include <iostream>
 #include <QString>
 #include <QMutexLocker>
 #include <QElapsedTimer>
 #include <QPainter>
+#include <QFontMetrics>
+#include <QFontDatabase>
 
 OutputStream::OutputStream(){
 	m_pLogger = new Logger();
+	generateFHQVisualizationPreview();
+};
 
-	// Create first frame (FHQ Visualization)
-	QImage *pFirstFrame = new QImage(QSize(1280,720), QImage::Format_RGB32);
-	pFirstFrame->fill(QColor(0x303030));
-	QPainter p(pFirstFrame);
-	p.setPen(QPen(QColor(0x303030)));
-	// p.setBrush(QBrush(QColor(0x303030), Qt::NoBrush));
-	// p.setBrush(QBrush(QColor(0xFF303030)));
-	p.setBrush(QBrush(QColor(48,48,48)));
-	p.drawRect(QRect(0,0,5,5));
+void OutputStream::generateFHQVisualizationPreview(){
 
-	/*QImage imgLogo(":/images/fhq2015.jpg");
-	QPoint destPos = QPoint((pFirstFrame->width()-imgLogo.width())/2, (pFirstFrame->height()-imgLogo.height())/2);
-	p.drawImage(destPos, imgLogo);*/
-	// pFirstFrame->fill(0xFF303030);
-	// pFirstFrame->fill(0xFFFFFFFF);
-	// pFirstFrame->fill(0xFF000000);
-	p.end();
-	m_vFrames.push_back(pFirstFrame);
+	int nWidth = 1280;
+	int nHeight = 720;
+	QImage imgLogo(":/images/fhq2015.png");
+	int nWidthLogo = imgLogo.width();
+	int nHeightLogo = imgLogo.width();
+
+	int id = QFontDatabase::addApplicationFont(":/fonts/hack.regular.ttf");
+	QString family = QFontDatabase::applicationFontFamilies(id).at(0);
+	QFont font(family, 24);
+
+	QFontMetrics fm(font);
+	QString text = "visualization";
+	int nTextWidth = fm.width(text);
+	int nTextHeight = fm.height();
+	int nFinishXText = nWidth/2 - nTextWidth/2;
+	
+	int nFinishXLogo = (nWidth-nWidthLogo)/2;
+	int nY = (nHeight-nHeightLogo)/2;
+	
+
+	int nFrames = 3*2;
+	int nDiff = (nWidth - nFinishXLogo)/nFrames;
+	int nDiffText = (nFinishXText + nTextWidth)/nFrames;
+	for(int fr = 0; fr < nFrames; fr++){
+		QImage *pFrame = new QImage(QSize(nWidth,nHeight), QImage::Format_RGB32);
+		pFrame->fill(QColor(0x303030));
+
+		QPainter p(pFrame);
+		p.setPen(QPen(QColor(0xFFC8C8C8)));
+		p.setBrush(QBrush(QColor(0xFFC8C8C8)));
+		int nX = (nWidth - nDiff*(fr+1));
+		if (fr == nFrames-1)
+			nX = nFinishXLogo;
+		p.drawImage(QPoint(nX, nY), imgLogo);	
+		p.setFont(font);
+		p.setPen(QPen(QColor(0xFFC8C8C8)));
+		
+		int nXt = nDiffText*(fr+1) - nTextWidth;
+		if (fr == nFrames-1){
+			nXt = nFinishXText;
+		}
+		p.drawText(nXt, nY + 10 + nTextHeight + nHeightLogo, text);
+		p.end();
+		m_vFrames.push_back(pFrame);
+	}
 };
 
 void OutputStream::setLogger(Logger *pLogger){
@@ -56,15 +88,16 @@ void OutputStream::run(){
 		if(pFrame != NULL){
 			uchar *pBytes = pFrame->bits();
 			int nBytes = pFrame->byteCount();
-			for(int i = 0; i < nBytes/4; i++){
-				int nPos = i*4;
-				std::cout << char(pBytes[nPos+1]);
-				std::cout << char(pBytes[nPos+2]);
-				std::cout << char(pBytes[nPos+3]);
+			for(int i = 0; i < nBytes; i++){
+				std::cout << char(pBytes[i]);
 			};
 		}
+
+		if(bRemove){
+			delete pFrame;
+		}
 		// Correction output stream
-		nExpected += 200; // 5 fps
+		nExpected += 500; // 2 fps
 		qint64 nElapsed = timer.elapsed();
 		qint64 nDiff = nExpected - nElapsed;
 
