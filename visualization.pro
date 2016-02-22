@@ -6,6 +6,9 @@ TEMPLATE = app
 OBJECTS_DIR = tmp/
 MOC_DIR = tmp/
 
+RESOURCES = \
+	visualization.qrc
+
 SOURCES += \
 	src/main.cpp \
 	src/logger.cpp \
