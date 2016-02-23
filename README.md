@@ -7,23 +7,24 @@
 
 # Run params
 
-	--framerate <number> (default 5)
-	--time <number> (default -1 - infinity loop)
-	--width <number> (default 1280)
-	--height <number> (default 720)
 	--disablelog - disabled logging
 
-# Run example use ffplay
+# Default parameters
 
-	$ cat examples/exampleScoreboard.visualization | \
-	./visualization -framerate 5 -width 1280 -height | \
-	ffplay -f rawvideo -pixel_format rgb24 -video_size 1280x720 -framerate 5 -i pipe:0
+* framerate: 10
+* width: 1280
+* height: 720
+* port: 31001
 
-# Run example use avconv
+# Run example use ffplay/avplay
 
-	$ cat examples/exampleScoreboard.visualization | \
-	./visualization -framerate 5 -width 1280 -height | \
-	avconv -f rawvideo -pixel_format rgb24 -video_size 1280x720 -framerate 5 -i pipe:0
+	$ ./visualization | \
+	ffplay -f rawvideo -pixel_format rgb32 -video_size 1280x720 -framerate 10 -i pipe:0
+
+# Run example use ffmpeg/avconv
+
+	$ ./visualization | \
+	ffmpeg -f rawvideo -pixel_format rgb32 -video_size 1280x720 -framerate 10 -i pipe:0 -f mpeg4 output.avi
 
 # How to RTMP server up
 
@@ -32,11 +33,14 @@ https://www.vultr.com/docs/setup-nginx-rtmp-on-ubuntu-14-04
 
 # Run example to RTMP server
 
-	$ cat examples/exampleScoreboard.visualization | \
-	./visualization -framerate 5 -width 1280 -height | \
-	ffmpeg -f rawvideo -pixel_format rgb24 -video_size 1280x720 -framerate 5 -i pipe:0 -f flv rtmp://host:port/live/exampleScoreboard
+	$ ./visualization | \
+	ffmpeg -f rawvideo -pixel_format rgb32 -video_size 1280x720 -framerate 10 -i pipe:0 -f flv rtmp://host:port/live/visualization
 	
-Use this link for looking streaming: rtmp://host:port/live/exampleScoreboard
+Use this link for looking streaming: rtmp://host:port/live/visualization
+
+# Connection to visualization server
+
+
 
 
 # Commands
@@ -44,10 +48,6 @@ Use this link for looking streaming: rtmp://host:port/live/exampleScoreboard
 ## Comment
 
 Use character ```#``` for your comments
-
-## Skip frames
-
-Usage: ```skip <count>```
 
 ## Fix frame (send to output)
 

@@ -2,8 +2,9 @@
 #define ICOMMAND_H
 #include <QString>
 #include <QStringList>
+#include <QVector>
+#include <QImage>
 #include "frame.h"
-#include "drawobjectscollection.h"
 
 class ICommand {
 	public:
@@ -15,7 +16,7 @@ class ICommand {
 		virtual bool check(QString &strResult) = 0;
 		virtual QString code() = 0;
 		virtual void appendCode(QString) = 0;
-		virtual void run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection) = 0;
+		virtual void run(QVector<QImage *> &m_vFrames) = 0;
 };
 
 #endif // ICOMMAND_H

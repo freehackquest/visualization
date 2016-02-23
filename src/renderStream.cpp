@@ -6,6 +6,8 @@
 
 RenderStream::RenderStream(){
 	m_pLogger = new Logger();
+	m_pInputStreamCommands = NULL;
+	m_pOutputStream = NULL;
 };
 
 void RenderStream::setLogger(Logger *pLogger){
@@ -32,11 +34,14 @@ void RenderStream::setParams(QVector<QString> &params){
 
 	m_pOutputFrame = new Frame(nWidth, nHeight);
 	m_pRenderFrame = new Frame(nWidth, nHeight);
-	m_pDrawObjectsCollection = new DrawObjectsCollection();
 };
 
 void RenderStream::setInputStream(InputStreamCommands *pInputStreamCommands){
 	m_pInputStreamCommands = pInputStreamCommands;
+};
+
+void RenderStream::setOutputStream(OutputStream *pOutputStream){
+	m_pOutputStream = pOutputStream;
 };
 
 Frame *RenderStream::outputFrame(){
@@ -45,15 +50,20 @@ Frame *RenderStream::outputFrame(){
 
 void RenderStream::run(){
 	while(true){
+		QVector<QImage*> vFrames;
 		while(m_pInputStreamCommands->hasCommand()){
 			ICommand *pCommand = m_pInputStreamCommands->command();
 			if(pCommand->name() == "fix"){
-				m_pOutputFrame->copy(m_pRenderFrame);
+				// TODO add to output stream
+				for(int i = 0; i < vFrames.size(); i++){
+					m_pOutputStream->addFrame(vFrames[i]);
+				}
+				vFrames.clear();
 			}else{
-				pCommand->run(m_pRenderFrame, m_pDrawObjectsCollection);
+				pCommand->run(vFrames);
 			}
 			m_pLogger->debug("Executed " + pCommand->code());
 		}
-		QThread::msleep(200);
+		QThread::msleep(1000/m_pOutputStream->framerate());
 	};
 };

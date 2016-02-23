@@ -15,7 +15,7 @@ class CommandFix : public ICommand {
 		virtual bool check(QString &strResult);
 		virtual QString code();
 		virtual void appendCode(QString);
-		virtual void run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection);
+		virtual void run(QVector<QImage *> &vFrames);
 	private:
 		QString m_strName;
 		QString m_sCheck;

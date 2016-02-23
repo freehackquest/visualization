@@ -118,8 +118,8 @@ int CommandLine::distance(int x1, int x2){
 	return x1-x2;
 }
 
-void CommandLine::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
+void CommandLine::run(QVector<QImage *> &vFrames){
 	if(!m_bCheck) return;
-	HelpersLine::draw(pFrame, m_nX1, m_nY1, m_nX2, m_nY2, m_nWidth, m_nColor);
+
 };
 

@@ -67,8 +67,8 @@ void CommandTable::drawGrid(Frame *pFrame, int nX, int nY, QVector<int> &vColumn
 	HelpersLine::draw(pFrame, nTmpX, nTmpY, nTmpX, nTmpY + nRowsHeight, nWidth, nColor);
 };
 
-void CommandTable::run(Frame *pFrame, DrawObjectsCollection *){
-	int nWidth = pFrame->width();
+void CommandTable::run(QVector<QImage *> &vFrames){
+	/*int nWidth = pFrame->width();
 	int nHeight = pFrame->height();
 	int nColor = 0xC8C8C8;
 	int nLineWidth = 1;
@@ -130,5 +130,5 @@ void CommandTable::run(Frame *pFrame, DrawObjectsCollection *){
 		);
 	}else{
 		
-	}
+	}*/
 }

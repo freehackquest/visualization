@@ -50,6 +50,5 @@ void CommandFix::appendCode(QString){
 	// Nothing it's single line command
 }
 
-void CommandFix::run(Frame *pFrame, DrawObjectsCollection *){
-	pFrame->outputToStd();
+void CommandFix::run(QVector<QImage *> &vFrames){
 }

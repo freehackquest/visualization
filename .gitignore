@@ -33,3 +33,4 @@ visualization.log
 *.avi
 tmp/*
 *~
+qrc_visualization.cpp

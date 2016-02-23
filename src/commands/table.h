@@ -15,7 +15,7 @@ class CommandTable : public ICommand {
 		virtual bool check(QString &strResult);
 		virtual QString code();
 		virtual void appendCode(QString);
-		virtual void run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection);
+		virtual void run(QVector<QImage *> &vFrames);
 	private:
 		void drawGrid(Frame *pFrame, int nX, int nY, QVector<int> &vColumnsWidth, int nRows, int nRowHeight, int nWidth, int nColor);
 		QString m_strName;

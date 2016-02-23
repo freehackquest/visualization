@@ -22,6 +22,9 @@ class OutputStream : public QThread{
 		void setFrame(Frame *m_pOuputFrame);
 		void addFrame(QImage *m_pFrame);
 		void run();
+		int width();
+		int height();
+		int framerate();
 	private:
 		void generateFHQVisualizationPreview();
 		Logger *m_pLogger;

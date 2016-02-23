@@ -77,6 +77,6 @@ void CommandPixel::appendCode(QString){
 	// Nothing it's single line command
 }
 
-void CommandPixel::run(Frame *pFrame, DrawObjectsCollection *pDrawObjectsCollection){
-	pFrame->setPixel(m_nX1, m_nY1, m_nColor);
+void CommandPixel::run(QVector<QImage *> &vFrames){
+
 }

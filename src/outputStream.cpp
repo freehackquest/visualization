@@ -14,10 +14,22 @@ OutputStream::OutputStream(){
 	generateFHQVisualizationPreview();
 };
 
+int OutputStream::width(){
+	return 1280;
+};
+
+int OutputStream::height(){
+	return 720;
+};
+
+int OutputStream::framerate(){
+	return 10;
+};
+
 void OutputStream::generateFHQVisualizationPreview(){
 
-	int nWidth = 1280;
-	int nHeight = 720;
+	int nWidth = width();
+	int nHeight = height();
 	QImage imgLogo(":/images/fhq2015.png");
 	int nWidthLogo = imgLogo.width();
 	int nHeightLogo = imgLogo.width();
@@ -36,7 +48,7 @@ void OutputStream::generateFHQVisualizationPreview(){
 	int nY = (nHeight-nHeightLogo)/2;
 	
 
-	int nFrames = 3*5;
+	int nFrames = 3*framerate();
 	int nDiff = (nWidth - nFinishXLogo)/nFrames;
 	int nDiffText = (nFinishXText + nTextWidth)/nFrames;
 	for(int fr = 0; fr < nFrames; fr++){
@@ -80,7 +92,8 @@ void OutputStream::run(){
 	QElapsedTimer timer;
 	timer.start();
 	qint64 nExpected = 0;
-	const int frameBufSize = 1280*720*4+1;
+	int nDiff_ms = 1000/framerate();
+	const int frameBufSize = width()*height()*4+1;
 	char frameBuf[frameBufSize];
 	std::memset(frameBuf,0,frameBufSize);
 	while(true){
@@ -95,10 +108,9 @@ void OutputStream::run(){
 		}
 
 		std::cout << frameBuf;
-		// std::cout.flush();
-			
+
 		// Correction output stream
-		nExpected += 100; //ms; == 10 fps
+		nExpected += nDiff_ms;
 		qint64 nElapsed = timer.elapsed();
 		qint64 nDiff = nExpected - nElapsed;
 		if(nDiff >= 0){

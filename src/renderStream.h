@@ -6,6 +6,7 @@
 #include "icommand.h"
 #include "frame.h"
 #include "inputStreamCommands.h"
+#include "outputStream.h"
 #include "logger.h"
 #include <QWidget>
 #include <QMutex>
@@ -19,14 +20,15 @@ class RenderStream : public QThread{
 		void setParams(QVector<QString> &params);
 		void setLogger(Logger *pLogger);
 		void setInputStream(InputStreamCommands *pInputStreamCommands);
+		void setOutputStream(OutputStream *pOutputStream);
 		Frame *outputFrame();
 		void run();
 	private:
 		Logger *m_pLogger;
 		Frame *m_pOutputFrame;
 		Frame *m_pRenderFrame;
-		DrawObjectsCollection *m_pDrawObjectsCollection;
 		InputStreamCommands *m_pInputStreamCommands;
+		OutputStream *m_pOutputStream;
 };
 
 #endif // RENDERSTREAM_H

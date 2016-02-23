@@ -6,7 +6,6 @@
 #include "commands/fix.h"
 #include "commands/line.h"
 #include "commands/pixel.h"
-#include "commands/skip.h"
 #include "commands/table.h"
 #include "commands/text.h"
 
@@ -16,7 +15,6 @@ CommandsCollection::CommandsCollection(){
 	registr(new CommandFix());
 	registr(new CommandLine());
 	registr(new CommandPixel());
-	registr(new CommandSkip());
 	registr(new CommandTable());
 	registr(new CommandText());
 };
