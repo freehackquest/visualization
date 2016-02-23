@@ -6,6 +6,8 @@
 #include <QPainter>
 #include <QFontMetrics>
 #include <QFontDatabase>
+#include <cstring>
+#include <QMutexLocker>
 
 OutputStream::OutputStream(){
 	m_pLogger = new Logger();
@@ -34,7 +36,7 @@ void OutputStream::generateFHQVisualizationPreview(){
 	int nY = (nHeight-nHeightLogo)/2;
 	
 
-	int nFrames = 3*2;
+	int nFrames = 3*5;
 	int nDiff = (nWidth - nFinishXLogo)/nFrames;
 	int nDiffText = (nFinishXText + nTextWidth)/nFrames;
 	for(int fr = 0; fr < nFrames; fr++){
@@ -57,7 +59,7 @@ void OutputStream::generateFHQVisualizationPreview(){
 		}
 		p.drawText(nXt, nY + 10 + nTextHeight + nHeightLogo, text);
 		p.end();
-		m_vFrames.push_back(pFrame);
+		addFrame(pFrame);
 	}
 };
 
@@ -69,41 +71,44 @@ void OutputStream::setFrame(Frame *pFrame){
 	m_pOutputFrame = pFrame;
 };
 
+void OutputStream::addFrame(QImage *m_pFrame){
+	QMutexLocker lock(&m_mtxFrames);
+	m_vFrames.push_back(m_pFrame);
+};
+
 void OutputStream::run(){
 	QElapsedTimer timer;
 	timer.start();
 	qint64 nExpected = 0;
+	const int frameBufSize = 1280*720*4+1;
+	char frameBuf[frameBufSize];
+	std::memset(frameBuf,0,frameBufSize);
 	while(true){
+
 		QImage *pFrame = NULL;
-		int nSize = m_vFrames.size();
-		bool bRemove = false;
-		if(nSize>1){
+		if(m_vFrames.size()>0){
+			QMutexLocker lock(&m_mtxFrames);
 			pFrame = m_vFrames.front();
 			m_vFrames.pop_front();
-			bRemove = true;
-		}else if(nSize == 1){
-			pFrame = m_vFrames.front();
-		}
-
-		if(pFrame != NULL){
-			uchar *pBytes = pFrame->bits();
-			int nBytes = pFrame->byteCount();
-			for(int i = 0; i < nBytes; i++){
-				std::cout << char(pBytes[i]);
-			};
-		}
-
-		if(bRemove){
+			std::memcpy(frameBuf, pFrame->bits(), pFrame->byteCount());
 			delete pFrame;
 		}
+
+		std::cout << frameBuf;
+		// std::cout.flush();
+			
 		// Correction output stream
-		nExpected += 500; // 2 fps
+		nExpected += 100; //ms; == 10 fps
 		qint64 nElapsed = timer.elapsed();
 		qint64 nDiff = nExpected - nElapsed;
-
 		if(nDiff >= 0){
 			QThread::msleep(nDiff);
+			// m_pLogger->debug("Expected: " + QString::number(nExpected) + "; Elapsed: " + QString::number(nElapsed));
 		}else{
+			if(nElapsed > 5000){
+				timer.restart();
+				nElapsed = 0;
+			}
 			m_pLogger->error("Elapsed more then Expected: " + QString::number(-1*nDiff));
 			continue;
 		}

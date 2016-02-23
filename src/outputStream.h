@@ -12,6 +12,7 @@
 #include <QtNetwork>
 #include <QThread>
 #include <QImage>
+#include <QMutex>
 
 class OutputStream : public QThread{
 		Q_OBJECT
@@ -19,12 +20,14 @@ class OutputStream : public QThread{
 		OutputStream();
 		void setLogger(Logger *pLogger);
 		void setFrame(Frame *m_pOuputFrame);
+		void addFrame(QImage *m_pFrame);
 		void run();
 	private:
 		void generateFHQVisualizationPreview();
 		Logger *m_pLogger;
 		Frame *m_pOutputFrame;
 		QVector<QImage *> m_vFrames;
+		QMutex m_mtxFrames;
 };
 
 #endif // OUTPUTSTREAM_H

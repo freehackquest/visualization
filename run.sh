@@ -2,6 +2,6 @@
 
 ## avconv -> ffmpeg
 
-./visualization --framerate 2 | \
+./visualization --framerate 10 | \
 	avplay -f rawvideo -pixel_format rgb32 -video_size 1280x720 \
-	-framerate 2 -i pipe:0
+	-framerate 10 -i pipe:0
