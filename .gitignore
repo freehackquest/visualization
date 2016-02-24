@@ -34,3 +34,4 @@ visualization.log
 tmp/*
 *~
 qrc_visualization.cpp
+*.pyc
