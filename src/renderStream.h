@@ -3,11 +3,10 @@
 #include <QTextStream>
 #include <QFile>
 #include "parser.h"
-#include "icommand.h"
-#include "frame.h"
 #include "inputStreamCommands.h"
 #include "outputStream.h"
 #include "logger.h"
+#include "interfaces/icore.h"
 #include <QWidget>
 #include <QMutex>
 #include <QtNetwork>
@@ -16,17 +15,13 @@
 class RenderStream : public QThread{
 		Q_OBJECT
 	public:
-		RenderStream();
-		void setParams(QVector<QString> &params);
-		void setLogger(Logger *pLogger);
+		RenderStream(ICore *pCore);
 		void setInputStream(InputStreamCommands *pInputStreamCommands);
 		void setOutputStream(OutputStream *pOutputStream);
-		Frame *outputFrame();
 		void run();
 	private:
-		Logger *m_pLogger;
-		Frame *m_pOutputFrame;
-		Frame *m_pRenderFrame;
+		ILogger *m_pLogger;
+		ICore *m_pCore;
 		InputStreamCommands *m_pInputStreamCommands;
 		OutputStream *m_pOutputStream;
 };

@@ -1,6 +1,7 @@
 #ifndef COMMAND_BACKGROUND_H
 #define COMMAND_BACKGROUND_H
-#include "../icommand.h"
+#include "../interfaces/icommand.h"
+#include "../interfaces/icore.h"
 #include <QString>
 #include <QStringList>
 
@@ -15,7 +16,7 @@ class CommandBackground : public ICommand {
 		virtual bool check(QString &strResult);
 		virtual QString code();
 		virtual void appendCode(QString);
-		virtual void run(QVector<QImage *> &vFrames);
+		virtual void run(ICore *pCore);
 	private:
 		QString m_strName;
 		bool m_bCheck;

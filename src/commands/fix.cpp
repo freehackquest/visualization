@@ -50,5 +50,5 @@ void CommandFix::appendCode(QString){
 	// Nothing it's single line command
 }
 
-void CommandFix::run(QVector<QImage *> &vFrames){
+void CommandFix::run(ICore *pCore){
 }

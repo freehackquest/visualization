@@ -13,12 +13,8 @@
 
 #include <iostream>
 #include <math.h>
+#include "core.h"
 
-#include "frame.h"
-#include "inputStreamCommands.h"
-#include "renderStream.h"
-#include "outputStream.h"
-#include "logger.h"
 
 int main(int argc, char *argv[]){
 	QApplication app(argc, argv);
@@ -33,24 +29,8 @@ int main(int argc, char *argv[]){
 	if(params.indexOf("--disablelog") >= 0)
 		pLogger->disable();
 
-	InputStreamCommands *pInputStreamCommands = new InputStreamCommands();
-	pInputStreamCommands->setLogger(pLogger);
-	
-	RenderStream *pRenderStream = new RenderStream();
-	pRenderStream->setLogger(pLogger);
-	
-	OutputStream *pOutputStream = new OutputStream();
-	pOutputStream->setLogger(pLogger);
-
-	pRenderStream->setInputStream(pInputStreamCommands);
-	pRenderStream->setOutputStream(pOutputStream);
-
-	pInputStreamCommands->start(31001); // started server on 31001 port 
-
-	pRenderStream->setParams(params); // todo depricate
-	pRenderStream->start();
-
-	pOutputStream->start();
+	Core *pCore = new Core(pLogger);
+	pCore->start();
 
 	return app.exec();
 }

@@ -1,6 +1,7 @@
 #ifndef COMMAND_TABLE_H
 #define COMMAND_TABLE_H
-#include "../icommand.h"
+#include "../interfaces/icommand.h"
+#include "../interfaces/icore.h"
 #include <QString>
 #include <QStringList>
 
@@ -15,9 +16,9 @@ class CommandTable : public ICommand {
 		virtual bool check(QString &strResult);
 		virtual QString code();
 		virtual void appendCode(QString);
-		virtual void run(QVector<QImage *> &vFrames);
+		virtual void run(ICore *pCore);
 	private:
-		void drawGrid(Frame *pFrame, int nX, int nY, QVector<int> &vColumnsWidth, int nRows, int nRowHeight, int nWidth, int nColor);
+		
 		QString m_strName;
 		QStringList m_listParams;
 		QStringList m_listCode;

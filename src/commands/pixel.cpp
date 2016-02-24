@@ -77,6 +77,6 @@ void CommandPixel::appendCode(QString){
 	// Nothing it's single line command
 }
 
-void CommandPixel::run(QVector<QImage *> &vFrames){
+void CommandPixel::run(ICore *pCore){
 
 }

@@ -38,6 +38,6 @@ void CommandDraw::appendCode(QString){
 	// this command is single line
 }
 
-void CommandDraw::run(QVector<QImage *> &vFrames){
+void CommandDraw::run(ICore *pCore){
 	
 }

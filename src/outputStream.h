@@ -2,11 +2,9 @@
 #define OUTPUTSTREAM_H
 #include <QTextStream>
 #include <QFile>
-#include "parser.h"
-#include "icommand.h"
-#include "frame.h"
 #include "inputStreamCommands.h"
-#include "logger.h"
+#include "interfaces/ilogger.h"
+#include "interfaces/icore.h"
 #include <QWidget>
 #include <QMutex>
 #include <QtNetwork>
@@ -17,18 +15,13 @@
 class OutputStream : public QThread{
 		Q_OBJECT
 	public:
-		OutputStream();
-		void setLogger(Logger *pLogger);
-		void setFrame(Frame *m_pOuputFrame);
+		OutputStream(ICore *pCore);
 		void addFrame(QImage *m_pFrame);
 		void run();
-		int width();
-		int height();
-		int framerate();
 	private:
 		void generateFHQVisualizationPreview();
-		Logger *m_pLogger;
-		Frame *m_pOutputFrame;
+		ILogger *m_pLogger;
+		ICore *m_pCore;
 		QVector<QImage *> m_vFrames;
 		QMutex m_mtxFrames;
 };

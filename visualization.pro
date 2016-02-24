@@ -12,7 +12,7 @@ RESOURCES = \
 SOURCES += \
 	src/main.cpp \
 	src/logger.cpp \
-	src/frame.cpp \
+	src/core.cpp \
 	src/inputStreamCommands.cpp \
 	src/renderStream.cpp \
 	src/outputStream.cpp \
@@ -25,15 +25,14 @@ SOURCES += \
 	src/commands/pixel.cpp \
 	src/commands/table.cpp \
 	src/commands/text.cpp \
-	src/helpersLine.cpp \
+	src/commands/fhqvisualization.cpp \
 	src/helpersParseArgs.cpp \
-	src/helpersText.cpp \
 
 HEADERS += \
-	src/idrawobject.h \
-	src/icommand.h \
+	src/interfaces/icommand.h \
+	src/interfaces/icore.h \
 	src/logger.h \
-	src/frame.h \
+	src/core.h \
 	src/inputStreamCommands.h \
 	src/renderStream.h \
 	src/outputStream.h \
@@ -46,7 +45,6 @@ HEADERS += \
 	src/commands/pixel.h \
 	src/commands/table.h \
 	src/commands/text.h \
-	src/helpersLine.h \
+	src/commands/fhqvisualization.h \
 	src/helpersParseArgs.h \
-	src/helpersText.h \
 	

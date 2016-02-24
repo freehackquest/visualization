@@ -80,8 +80,8 @@ void CommandText::appendCode(QString){
 	// this command is single line
 };
 
-void CommandText::run(QVector<QImage *> &vFrames){
+void CommandText::run(ICore *pCore){
 	if(!m_bCheck) return;
-
+	// if(vFrames)
 };
 

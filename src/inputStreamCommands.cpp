@@ -5,15 +5,12 @@
 #include <QMutexLocker>
 #include <QTcpServer>
 		
-InputStreamCommands::InputStreamCommands(QObject *parent) :
+InputStreamCommands::InputStreamCommands(ICore *pCore, QObject *parent) :
 	QObject(parent) {
-	m_pParser = new Parser();
-	m_pLogger = new Logger();
-};
-
-void InputStreamCommands::setLogger(Logger *pLogger){
-	m_pLogger = pLogger;
-	m_pParser->setLogger(pLogger);
+	m_pCore = pCore;
+	m_pParser = new Parser(pCore);
+	m_pParser->setLogger(m_pCore->logger());
+	m_pLogger = m_pCore->logger();
 };
 
 bool InputStreamCommands::hasCommand(){
@@ -71,7 +68,7 @@ void InputStreamCommands::start(int nPort){
 		m_pLogger->error("Unable to start Input Server.");
 		return;
     } else {
-		m_pLogger->info("Input Server Started. Wait connection.");
+		m_pLogger->info("InputStream started. Wait connection.");
     }
 };
 

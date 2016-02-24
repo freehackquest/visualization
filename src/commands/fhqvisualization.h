@@ -1,13 +1,14 @@
-#ifndef COMMAND_LINE_H
-#define COMMAND_LINE_H
+#ifndef COMMAND_FHQ_VISUALIZATION_H
+#define COMMAND_FHQ_VISUALIZATION_H
 #include "../interfaces/icommand.h"
 #include "../interfaces/icore.h"
 #include <QString>
 #include <QStringList>
 
-class CommandLine : public ICommand {
+class CommandFHQVisualization : public ICommand {
 	public:
-		CommandLine();
+		CommandFHQVisualization();
+		virtual ~CommandFHQVisualization();
 		virtual bool isMultiLine();
 		virtual ICommand *create();
 		virtual QString name();
@@ -18,17 +19,14 @@ class CommandLine : public ICommand {
 		virtual void appendCode(QString);
 		virtual void run(ICore *pCore);
 	private:
-		int distance(int x1, int x2);
 		QString m_strName;
 		QStringList m_listParams;
 		int m_nX1;
 		int m_nY1;
-		int m_nX2;
-		int m_nY2;
-		int m_nWidth;
 		int m_nColor;
+		QString m_sText;
 		bool m_bCheck;
 		QString m_sCheck;
 };
 
-#endif // COMMAND_LINE_H
+#endif // COMMAND_FHQ_VISUALIZATION_H

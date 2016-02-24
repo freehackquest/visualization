@@ -4,10 +4,11 @@
 #include <QStringList>
 #include <QVector>
 #include <QImage>
-#include "frame.h"
+#include "icore.h"
 
 class ICommand {
 	public:
+		virtual ~ICommand() {};
 		virtual bool isMultiLine() = 0;
 		virtual ICommand *create() = 0;
 		virtual QString name() = 0;
@@ -16,7 +17,7 @@ class ICommand {
 		virtual bool check(QString &strResult) = 0;
 		virtual QString code() = 0;
 		virtual void appendCode(QString) = 0;
-		virtual void run(QVector<QImage *> &m_vFrames) = 0;
+		virtual void run(ICore *pCore) = 0;
 };
 
 #endif // ICOMMAND_H

@@ -1,7 +1,5 @@
 #include "table.h"
-#include "../helpersLine.h"
 #include "../helpersParseArgs.h"
-#include "../helpersText.h"
 #include <iostream>
 #include <QString>
 #include <QVector>
@@ -41,7 +39,7 @@ QString CommandTable::code(){
 void CommandTable::appendCode(QString line){
 	m_listCode << line;
 };
-
+/*
 void CommandTable::drawGrid(Frame *pFrame, int nX, int nY, QVector<int> &vColumnsWidth, int nRows, int nRowHeight, int nWidth, int nColor){
 	int nRowWidth = 0;
 	for(int i = 0; i < vColumnsWidth.size(); i++){
@@ -66,8 +64,8 @@ void CommandTable::drawGrid(Frame *pFrame, int nX, int nY, QVector<int> &vColumn
 	}
 	HelpersLine::draw(pFrame, nTmpX, nTmpY, nTmpX, nTmpY + nRowsHeight, nWidth, nColor);
 };
-
-void CommandTable::run(QVector<QImage *> &vFrames){
+*/
+void CommandTable::run(ICore *pCore){
 	/*int nWidth = pFrame->width();
 	int nHeight = pFrame->height();
 	int nColor = 0xC8C8C8;

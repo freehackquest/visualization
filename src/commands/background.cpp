@@ -58,7 +58,7 @@ void CommandBackground::appendCode(QString){
 	// this command is single line
 };
 
-void CommandBackground::run(QVector<QImage *> &vFrames){
+void CommandBackground::run(ICore *pCore){
 	/*for(int y = 0; y < pFrame->height(); y++){
 		for(int x = 0; x < pFrame->width(); x++){
 			pFrame->setPixel(x,y,m_nColor);

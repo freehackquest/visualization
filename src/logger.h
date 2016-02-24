@@ -1,21 +1,22 @@
 #ifndef LOGGER_H
 #define LOGGER_H
+#include "interfaces/ilogger.h"
 #include <QString>
 #include <QFile>
 #include <QTextStream>
 #include <QMutex>
 
-class Logger {
+class Logger : public ILogger{
 	public:
 		Logger();
 		Logger(QString filename);
 		Logger(Logger *pLogger);
-		void info(QString str);
-		void debug(QString str);
-		void error(QString str);
-		void warn(QString str);
-		void disable();
-		void enable();
+		virtual void info(QString str);
+		virtual void debug(QString str);
+		virtual void error(QString str);
+		virtual void warn(QString str);
+		virtual void disable();
+		virtual void enable();
 	private:
 		void message(QString prefix, QString msg);
 		bool m_bEnabled;

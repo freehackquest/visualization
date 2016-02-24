@@ -1,13 +1,14 @@
 #include "parser.h"
 #include <iostream>
 
-Parser::Parser(){
-	m_pLogger = new Logger();
+Parser::Parser(ICore *pCore){
+	m_pCore = pCore;
+	m_pLogger = m_pCore->logger();
 	m_pCommandsCollection = new CommandsCollection();
 	m_bMultiLineCommand = false;
 };
 
-void Parser::setLogger(Logger *pLogger){
+void Parser::setLogger(ILogger *pLogger){
 	m_pLogger = pLogger;
 };
 

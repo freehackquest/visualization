@@ -4,26 +4,27 @@
 #include <QString>
 #include <QStringList>
 #include <QVector>
-#include "icommand.h"
+#include "interfaces/icommand.h"
+#include "interfaces/ilogger.h"
 #include "commandscollection.h"
-#include "logger.h"
 
 class Parser {
 	public:
-		Parser();
-		void setLogger(Logger *pLogger);
+		Parser(ICore *pCore);
+		void setLogger(ILogger *pLogger);
 		void parse(QString line);
 		bool hasCommand();
 		ICommand* command();
 	private:
 		void parseLine(QString line);
+		ICore *m_pCore;
 		bool m_bCommandCompleted;
 		bool m_bMultiLineCommand;
 		QString removeComment(QString);
 		QStringList m_listCode;
 		QVector<ICommand*> m_vCommands;
 		ICommand* m_pTemporaryCommand;
-		Logger *m_pLogger;
+		ILogger *m_pLogger;
 		CommandsCollection *m_pCommandsCollection;
 };
 

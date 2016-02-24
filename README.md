@@ -40,9 +40,6 @@ Use this link for looking streaming: rtmp://host:port/live/visualization
 
 # Connection to visualization server
 
-
-
-
 # Commands
 
 ## Comment

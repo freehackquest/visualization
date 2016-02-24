@@ -1,6 +1,6 @@
 #ifndef COMMANDS_COLLECTION_H
 #define COMMANDS_COLLECTION_H
-#include "icommand.h"
+#include "interfaces/icommand.h"
 #include <QString>
 #include <QMap>
 

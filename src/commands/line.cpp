@@ -1,5 +1,4 @@
 #include "line.h"
-#include "../helpersLine.h"
 #include <iostream>
 #include <QString>
 
@@ -118,8 +117,8 @@ int CommandLine::distance(int x1, int x2){
 	return x1-x2;
 }
 
-void CommandLine::run(QVector<QImage *> &vFrames){
+void CommandLine::run(ICore *pCore){
 	if(!m_bCheck) return;
-
+	// todo
 };
 
