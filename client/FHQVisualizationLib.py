@@ -18,6 +18,8 @@ class FHQVisualizationLib:
 		self.s.send(" ".join(args) + "\n")
 	def background(self, color):
 		self.send(["background",color])
+	def fhqvisualization(self):
+		self.send(["fhqvisualization"])	
 	def pixel(self, x, y, color):
 		self.send(["pixel",str(x),str(y),color])
 	def line(self, x1, y1, x2, y2, w, color):
