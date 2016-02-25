@@ -21,7 +21,7 @@ class Core : public ICore {
 		virtual void start();
 		virtual QImage * createFrame();
 		virtual QImage * lastFrame();
-		virtual void fix();
+		virtual void pushFrames();
 
 	private:
 		int m_nWidth;

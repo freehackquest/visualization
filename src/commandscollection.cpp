@@ -2,23 +2,28 @@
 #include <iostream>
 #include <QString>
 #include "commands/background.h"
+#include "commands/createframe.h"
 #include "commands/draw.h"
-#include "commands/fix.h"
+#include "commands/fhqvisualization.h"
+#include "commands/pushframes.h"
 #include "commands/line.h"
 #include "commands/pixel.h"
 #include "commands/table.h"
 #include "commands/text.h"
-#include "commands/fhqvisualization.h"
+#include "commands/tree.h"
 
 CommandsCollection::CommandsCollection(){
 	registr(new CommandBackground());
+	registr(new CommandCreateFrame());
 	registr(new CommandDraw());
-	registr(new CommandFix());
+	registr(new CommandFHQVisualization());
 	registr(new CommandLine());
 	registr(new CommandPixel());
+	registr(new CommandPushFrames());
 	registr(new CommandTable());
 	registr(new CommandText());
-	registr(new CommandFHQVisualization());
+	registr(new CommandTree());
+	
 };
 
 bool CommandsCollection::contains(QString name){

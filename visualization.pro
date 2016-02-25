@@ -19,13 +19,15 @@ SOURCES += \
 	src/parser.cpp \
 	src/commandscollection.cpp \
 	src/commands/background.cpp \
+	src/commands/createframe.cpp \
 	src/commands/draw.cpp \
-	src/commands/fix.cpp \
+	src/commands/fhqvisualization.cpp \
 	src/commands/line.cpp \
 	src/commands/pixel.cpp \
+	src/commands/pushframes.cpp \
 	src/commands/table.cpp \
 	src/commands/text.cpp \
-	src/commands/fhqvisualization.cpp \
+	src/commands/tree.cpp \
 	src/helpersParseArgs.cpp \
 
 HEADERS += \
@@ -39,12 +41,14 @@ HEADERS += \
 	src/parser.h \
 	src/commandscollection.h \
 	src/commands/background.h \
+	src/commands/createframe.h \
 	src/commands/draw.h \
-	src/commands/fix.h \
+	src/commands/fhqvisualization.h \
 	src/commands/line.h \
 	src/commands/pixel.h \
+	src/commands/pushframes.h \
 	src/commands/table.h \
 	src/commands/text.h \
-	src/commands/fhqvisualization.h \
+	src/commands/tree.h \
 	src/helpersParseArgs.h \
 	

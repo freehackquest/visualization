@@ -1,60 +1,58 @@
-#include "fhqvisualization.h"
+#include "tree.h"
 #include <iostream>
 #include <QString>
 #include <QFontMetrics>
 #include <QFontDatabase>
 #include <QPainter>
 
-CommandFHQVisualization::CommandFHQVisualization(){
+CommandTree::CommandTree(){
 	m_sCheck = "";
 	m_bCheck = true;
 };
 
-CommandFHQVisualization::~CommandFHQVisualization(){
+CommandTree::~CommandTree(){
 };
 
-bool CommandFHQVisualization::isMultiLine(){
+bool CommandTree::isMultiLine(){
 	return false;
 };
 
-ICommand *CommandFHQVisualization::create(){
-	return new CommandFHQVisualization();
+ICommand *CommandTree::create(){
+	return new CommandTree();
 };
 	
-QString CommandFHQVisualization::name(){
-	return "fhqvisualization";
+QString CommandTree::name(){
+	return "tree";
 };
 
 /*
- * @command fhqvisualization
+ * @command tree
  * @author Evgenii Sopov
- * @usage text 
+ * @usage tree
  * */
 
-void CommandFHQVisualization::setParams(QStringList list){
+void CommandTree::setParams(QStringList list){
 	m_listParams << list;
-	m_sCheck = "";
-	m_bCheck = true;
 };
 
-bool CommandFHQVisualization::check(){
+bool CommandTree::check(){
 	return m_bCheck;
 };
 
-bool CommandFHQVisualization::check(QString &strCheck){
+bool CommandTree::check(QString &strCheck){
 	strCheck = m_sCheck;
 	return m_bCheck;
 };
 
-QString CommandFHQVisualization::code(){
+QString CommandTree::code(){
 	return name() + " " + m_listParams.join(" ");
 }
 
-void CommandFHQVisualization::appendCode(QString){
+void CommandTree::appendCode(QString){
 	// this command is single line
 };
 
-void CommandFHQVisualization::run(ICore *pCore){
+void CommandTree::run(ICore *pCore){
 	if(!m_bCheck) return;
 	int nWidth = pCore->width();
 	int nHeight = pCore->height();

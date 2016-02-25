@@ -35,7 +35,7 @@ QImage * Core::lastFrame(){
 	return m_vFrames.last();
 };
 
-void Core::fix(){
+void Core::pushFrames(){
 	QMutexLocker lock(&m_mtxFrames);
 	for(int i = 0; i < m_vFrames.size(); i++){
 		m_pOutputStream->addFrame(m_vFrames[i]);

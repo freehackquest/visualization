@@ -17,7 +17,7 @@ class ICore {
 		// for work with frames
 		virtual QImage * createFrame() = 0;
 		virtual QImage * lastFrame() = 0;
-		virtual void fix() = 0;
+		virtual void pushFrames() = 0;
 };
 
 #endif // ICORE_H

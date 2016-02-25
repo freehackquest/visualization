@@ -24,5 +24,9 @@ class FHQVisualizationLib:
 		self.send(["pixel",str(x),str(y),color])
 	def line(self, x1, y1, x2, y2, w, color):
 		self.send(["line",str(x1),str(y1),str(x1),str(y1),str(w),color])
-	def fix(self):
-		self.send(["fix"])
+	def createframe(self):
+		self.send(["createframe"])
+	def pushframes(self):
+		self.send(["pushframes"])
+	def tree(self):
+		self.send(["tree"])
