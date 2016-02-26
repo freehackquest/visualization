@@ -21,7 +21,7 @@ QString CommandLine::name(){
  * @command line
  * @author Evgenii Sopov
  * @usage line <x1> <y1> <x2> <y2> <width> <color>
- * @param x1 requared, integer
+ * @param x1 - requared, integer
  * @param y1 - requared, integer
  * @param x2 - requared, integer
  * @param y2 - requared, integer

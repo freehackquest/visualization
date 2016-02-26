@@ -31,11 +31,10 @@ void OutputStream::run(){
 	timer.start();
 	qint64 nExpected = 0;
 	int nDiff_ms = 1000/m_pCore->framerate();
-	const int frameBufSize = m_pCore->width()*m_pCore->height()*4+1;
+	const int frameBufSize = m_pCore->width()*m_pCore->height()*4;
 	char frameBuf[frameBufSize];
 	std::memset(frameBuf,0,frameBufSize);
 	while(true){
-
 		QImage *pFrame = NULL;
 		if(m_vFrames.size()>0){
 			// m_pLogger->info("OutputStream has frame");
@@ -46,7 +45,7 @@ void OutputStream::run(){
 			delete pFrame;
 		}
 
-		std::cout << frameBuf;
+		fwrite(frameBuf, frameBufSize, 1, stdout);
 
 		// Correction output stream
 		nExpected += nDiff_ms;

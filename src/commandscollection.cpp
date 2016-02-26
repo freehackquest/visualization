@@ -6,6 +6,7 @@
 #include "commands/draw.h"
 #include "commands/fhqvisualization.h"
 #include "commands/pushframes.h"
+#include "commands/showexploitrun.h"
 #include "commands/line.h"
 #include "commands/pixel.h"
 #include "commands/table.h"
@@ -20,6 +21,7 @@ CommandsCollection::CommandsCollection(){
 	registr(new CommandLine());
 	registr(new CommandPixel());
 	registr(new CommandPushFrames());
+	registr(new CommandShowExploitRun());
 	registr(new CommandTable());
 	registr(new CommandText());
 	registr(new CommandTree());
