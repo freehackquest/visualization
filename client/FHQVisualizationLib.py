@@ -30,3 +30,5 @@ class FHQVisualizationLib:
 		self.send(["pushframes"])
 	def tree(self):
 		self.send(["tree"])
+	def showexploitrun(self,team1,team2,ip1,ip2,flags,success):
+		self.send(["showexploitrun", team1,team2,ip1,ip2,str(flags),str(success)])
