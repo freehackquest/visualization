@@ -32,3 +32,6 @@ class FHQVisualizationLib:
 		self.send(["tree"])
 	def showexploitrun(self,team1,team2,ip1,ip2,flags,success):
 		self.send(["showexploitrun", team1,team2,ip1,ip2,str(flags),str(success)])
+	def showthreelock(self,team):
+		self.send(["showthreelock", team])
+ 

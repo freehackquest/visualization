@@ -16,6 +16,12 @@
 * height: 720
 * port: 31001
 
+# Base colors:
+
+* backgound: 0x303030
+* text-color: 0xC8C8C8
+
+
 # Run example use ffplay/avplay
 
 	$ ./visualization | \
@@ -44,23 +50,20 @@ Use this link for looking streaming: rtmp://host:port/live/visualization
 
 ## Comment
 
-Use character ```#``` for your comments
+Usage: ```comment```
 
-## Fix frame (send to output)
+## createframe
 
-Usage: ```fix```
+Usage: ```createframe```
+
+## pushframes
+
+Usage: ```pushframes```
 
 ## Color
 
 In the system used rgb spec:
 * FFFFFF == RGB
-
-### Predefined colors
-	
-* white == FFF
-* black
-* red
-* green
 
 ## line
 
@@ -70,28 +73,22 @@ Usage: ```line <number-x1> <number-y1> <number-x2> <number-y2> <number-width> <c
 
 Usage: ```line <number-x1> <number-y1> <color>```
 
-## Draw object
-
-Usage: ```draw <object> [<params>]```
-
-## Fill background
+## background
 
 Usage: ```background <color>```
 
-## Predefined objects
+## showthreelock
 
-### background
-Usage: ```background <color>```
+Usage: ```showthreelock <team_name>```
 
-Examples:
-* background 000000
-* background FFFFFF
-* background red
+## showexploitrun
+
+Usage: ```showexploitrun <team1> <team2> <ip1> <ip2> <flags> <success>```
 
 
 ### rect
 
-Usage: ```draw rect <number-x1> <number-y1> <number-x2> <number-y2> <color>```
+Usage: ```rect <number-x1> <number-y1> <number-x2> <number-y2> <color>```
 
 ### border
 
