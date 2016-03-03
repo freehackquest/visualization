@@ -34,4 +34,7 @@ class FHQVisualizationLib:
 		self.send(["showexploitrun", team1,team2,ip1,ip2,str(flags),str(success)])
 	def showthreelock(self,team):
 		self.send(["showthreelock", team])
+	def showwiringandlightnings(self,team,service):
+		self.send(["showwiringandlightnings", team, service])
+	
  

@@ -5,10 +5,11 @@
 #include "commands/createframe.h"
 #include "commands/draw.h"
 #include "commands/fhqvisualization.h"
-#include "commands/pushframes.h"
-#include "commands/showexploitrun.h"
 #include "commands/line.h"
 #include "commands/pixel.h"
+#include "commands/pushframes.h"
+#include "commands/showexploitrun.h"
+#include "commands/showwiringandlightnings.h"
 #include "commands/table.h"
 #include "commands/text.h"
 #include "commands/tree.h"
@@ -22,6 +23,7 @@ CommandsCollection::CommandsCollection(){
 	registr(new CommandPixel());
 	registr(new CommandPushFrames());
 	registr(new CommandShowExploitRun());
+	registr(new ShowWiringAndLightnings());
 	registr(new CommandTable());
 	registr(new CommandText());
 	registr(new CommandTree());

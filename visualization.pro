@@ -26,6 +26,7 @@ SOURCES += \
 	src/commands/pixel.cpp \
 	src/commands/pushframes.cpp \
 	src/commands/showexploitrun.cpp \
+	src/commands/showwiringandlightnings.cpp \
 	src/commands/table.cpp \
 	src/commands/text.cpp \
 	src/commands/tree.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
 	src/commands/pixel.h \
 	src/commands/pushframes.h \
 	src/commands/showexploitrun.h \
+	src/commands/showwiringandlightnings.h \
 	src/commands/table.h \
 	src/commands/text.h \
 	src/commands/tree.h \
