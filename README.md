@@ -1,5 +1,21 @@
 # Install Qt 5 on Ubuntu
+
 	$ sudo apt-get install qtbase5-dev
+
+## If qmake printed error
+
+Printed like:
+
+	$ qmake
+	qmake: could not exec '/usr/lib/x86_64-linux-gnu/qt4/bin/qmake': No such file or directory
+
+You need change to qt5 default
+
+	$ sudo nano /usr/lib/x86_64-linux-gnu/qt-default/qtchooser/default.conf
+	
+And check
+
+	$ qtchooser -print-env
 
 # Build
 	$ qmake
