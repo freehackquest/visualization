@@ -26,9 +26,13 @@ QString CommandFHQVisualization::name(){
 };
 
 /*
+ * @MANUAL START
  * @command fhqvisualization
- * @author Evgenii Sopov
- * @usage text 
+ * @description Scene of freehackquest Welcome
+ * @author Evgenii Sopov <mrseakg@gmail.com>
+ * @usage fhqvisualization
+ * @youtube http://www.youtube.com/watch?v=UGPXa3HGj7w
+ * @MANUAL STOP
  * */
 
 void CommandFHQVisualization::setParams(QStringList list){

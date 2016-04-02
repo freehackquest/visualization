@@ -18,11 +18,15 @@ QString CommandBackground::name(){
 };
 
 /*
- * @command background <color>
+ * @MANUAL START
+ * @command background
  * @author Evgenii Sopov
- * @usage fix
- * @descr fixing frame and output
+ * @usage background <color>
+ * @param color - required, color value 
+ * @description Fill background 
+ * @MANUAL STOP
  * */
+
 void CommandBackground::setParams(QStringList list){
 	m_listParams << list;
 	QString sUsage = " Usage: 'background <color>'";

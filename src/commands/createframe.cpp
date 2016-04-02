@@ -20,9 +20,12 @@ QString CommandCreateFrame::name(){
 };
 
 /*
+ * @MANUAL START
  * @command createframe
- * @author Evgenii Sopov
+ * @author Evgenii Sopov <mrseakg@gmail.com>
  * @usage createframe
+ * @description Created a new empty frame.
+ * @MANUAL STOP
  * */
 
 void CommandCreateFrame::setParams(QStringList list){

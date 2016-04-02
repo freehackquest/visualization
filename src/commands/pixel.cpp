@@ -18,12 +18,15 @@ QString CommandPixel::name(){
 };
 
 /*
+ * @MANUAL START
  * @command pixel
+ * @description Not implemented yet
  * @author Evgenii Sopov
  * @usage pixel <x1> <y1> <color>
  * @param x1 requared, integer
  * @param y1 - requared, integer
  * @param color - requared, color
+ * @MANUAL STOP
  * */
 void CommandPixel::setParams(QStringList list){
 	m_listParams << list;

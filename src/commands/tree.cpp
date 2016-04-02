@@ -30,9 +30,13 @@ QString CommandTree::name(){
 };
 
 /*
+ * @MANUAL START
  * @command tree
+ * @description Show random tree
  * @author Evgenii Sopov
  * @usage tree
+ * @youtube http://www.youtube.com/watch?v=jX01mF7GJPo
+ * @MANUAL STOP
  * */
 
 void CommandTree::setParams(QStringList list){

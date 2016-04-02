@@ -18,12 +18,15 @@ QString CommandText::name(){
 };
 
 /*
- * @command line
+ * @MANUAL START
+ * @description Not implemneted yet 
+ * @command text
  * @author Evgenii Sopov
  * @usage text <x1> <y1> <color> <text>
  * @param x1 - requared, integer
  * @param y1 - requared, integer
  * @param text - requared, string
+ * @MANUAL START
  * */
 
 void CommandText::setParams(QStringList list){

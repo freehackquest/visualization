@@ -18,8 +18,10 @@ QString CommandLine::name(){
 };
 
 /*
+ * @MANUAL START
  * @command line
- * @author Evgenii Sopov
+ * @description Not implemented yet
+ * @author Evgenii Sopov <mrseakg@gmail.com>
  * @usage line <x1> <y1> <x2> <y2> <width> <color>
  * @param x1 - requared, integer
  * @param y1 - requared, integer
@@ -27,6 +29,7 @@ QString CommandLine::name(){
  * @param y2 - requared, integer
  * @param width - requared, positive and > 0, integer
  * @param color - requared, color
+ * @MANUAL STOP
  * */
 
 void CommandLine::setParams(QStringList list){

@@ -30,12 +30,15 @@ QString ShowWiringAndLightnings::name(){
 };
 
 /*
+ * @MANUAL START
  * @command showwiringandlightnings
  * @author Evgenii Sopov
  * @usage showexploterun <team> <searvice>
  * @example showwiringandlightnings keva ofoody
  * @param team - requared, string
  * @param searvice - requared, string
+ * @youtube http://www.youtube.com/watch?v=JJCCrD3rd1s
+ * @MANUAL STOP
  * */
 
 void ShowWiringAndLightnings::setParams(QStringList list){

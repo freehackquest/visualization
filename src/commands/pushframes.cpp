@@ -18,10 +18,12 @@ QString CommandPushFrames::name(){
 };
 
 /*
+ * @MANUAL START
  * @command pushframes
  * @author Evgenii Sopov
  * @usage pushframes
- * @descr fixing frames and output
+ * @description Pushing all generated frames to output
+ * @MANUAL STOP
  * */
 void CommandPushFrames::setParams(QStringList list){
 	QString sUsage = " Usage: 'pushframes'";
