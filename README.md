@@ -2,7 +2,11 @@
 
 	$ sudo apt-get install qtbase5-dev
 
-## If qmake printed error
+# Build
+	$ qmake
+	$ make
+
+### If qmake printed error
 
 Printed like:
 
@@ -16,10 +20,6 @@ You need change to qt5 default
 And check
 
 	$ qtchooser -print-env
-
-# Build
-	$ qmake
-	$ make
 
 # Run params
 
@@ -63,6 +63,10 @@ Use this link for looking streaming: rtmp://host:port/live/visualization
 # Connection to visualization server
 
 # Commands
+
+look here: 
+
+[Read more words!](COMMANDS.md)
 
 ## Comment
 
