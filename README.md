@@ -62,11 +62,11 @@ Use this link for looking streaming: rtmp://host:port/live/visualization
 
 # Connection to visualization server
 
-# Commands
+	`nc localhost:31001`
 
-look here: 
+# Manual by commands
 
-[Read more words!](COMMANDS.md)
+[Manual by commands](COMMANDS.md)
 
 ## Comment
 
