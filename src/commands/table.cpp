@@ -72,10 +72,10 @@ void CommandTable::drawGrid(Frame *pFrame, int nX, int nY, QVector<int> &vColumn
  * @author Evgenii Sopov
  * @usage table
  * @example table <color>
- * @example	place name score
- * @example	1 team1 1000.22
- * @example	2 team2 900.21
- * @example	3 team3 100.00
+ * @example place name score
+ * @example 1 team1 1000.22
+ * @example 2 team2 900.21
+ * @example 3 team3 100.00
  * @example table end
  * @description Multiline command, Not implemented yet
  * @MANUAL STOP

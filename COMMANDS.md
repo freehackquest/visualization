@@ -67,8 +67,9 @@ Usage: `showexploterun <team1> <team2> <ip1> <ip2> <flags> <success>`
 6. success - requared, bool
 
 
-Example: `showexploterun team1 team2 10.0.145.12 10.0.142.1 5 false
-`
+Example:
+
+	showexploterun team1 team2 10.0.145.12 10.0.142.1 5 false
 
 [Look on youtube](http://www.youtube.com/watch?v=wuhMwPDcdDo)
 *Evgenii Sopov*
@@ -80,8 +81,9 @@ Usage: `showexploterun <team> <searvice>`
 2. searvice - requared, string
 
 
-Example: `showwiringandlightnings keva ofoody
-`
+Example:
+
+	showwiringandlightnings keva ofoody
 
 [Look on youtube](http://www.youtube.com/watch?v=JJCCrD3rd1s)
 *Evgenii Sopov*
@@ -91,9 +93,14 @@ Usage: `table`
 
 Multiline command, Not implemented yet
 
-Example: `table <color>
-table end
-`
+Example:
+
+	table <color>
+	place name score
+	1 team1 1000.22
+	2 team2 900.21
+	3 team3 100.00
+	table end
 
 *Evgenii Sopov*
 

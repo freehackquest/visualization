@@ -25,8 +25,8 @@ def printData(st):
 		print(str(i) + ". " + param)
 	print("")
 	print(st['description'])
-	if st['example'] != '':
-		print("Example: `" + st['example'] + "`\n")
+	if len(st['example']) > 0:
+		print("Example:\n\n\t" + "\n\t".join(st['example']) + "\n")
 	if st['youtube'] != '':
 		print("[Look on youtube](" + st['youtube'] + ")")
 	print("*" + st['author'] + "*")
@@ -36,21 +36,21 @@ def getEmptyData():
 		"command" : "",
 		"author": "",
 		"usage" : "",
-		"example" : "",
+		"example" : [],
 		"youtube" : "",
 		"params": [],
 		"description": ""
 	}
 
-ptrn_manual_start = re.compile("[ *]*@MANUAL START[ \\t]*")
-ptrn_manual_stop  = re.compile("[ *]*@MANUAL STOP[ \\t]*")
-ptrn_command      = re.compile("[ *]*@command (.*)[ \\t]*")
-ptrn_usage        = re.compile("[ *]*@usage (.*)[ \\t]*")
-ptrn_author       = re.compile("[ *]*@author (.*)[ \\t]*")
-ptrn_params       = re.compile("[ *]*@param (.*)[ \\t]*")
-ptrn_description  = re.compile("[ *]*@description (.*)[ \\t]*")
-ptrn_example  = re.compile("[ *]*@example (.*)[ \\t]*")
-ptrn_youtube  = re.compile("[ *]*@youtube (.*)[ \\t]*")
+ptrn_manual_start = re.compile("[ \\t*]*@MANUAL[ \\t]+START[ \\t]*")
+ptrn_manual_stop  = re.compile("[ \\t*]*@MANUAL[ \\t]+STOP[ \\t]*")
+ptrn_command      = re.compile("[ \\t*]*@command[ \\t]+(.*)[ \\t]*")
+ptrn_usage        = re.compile("[ \\t*]*@usage[ \\t]+(.*)[ \\t]*")
+ptrn_author       = re.compile("[ \\t*]*@author[ \\t]+(.*)[ \\t]*")
+ptrn_params       = re.compile("[ \\t*]*@param[ \\t]+(.*)[ \\t]*")
+ptrn_description  = re.compile("[ \\t*]*@description[ \\t]+(.*)[ \\t]*")
+ptrn_example  = re.compile("[ \\t*]*@example[ \\t]+(.*)[ \\t]*")
+ptrn_youtube  = re.compile("[ \\t*]*@youtube[ \\t]+(.*)")
 
 for filename in commands:
 	# search keywords
@@ -76,6 +76,6 @@ for filename in commands:
 			elif manstarted is True and ptrn_description.match(line):
 				data['description'] = data['description'] + ptrn_description.match(line).group(1) + "\n";
 			elif manstarted is True and ptrn_example.match(line):
-				data['example'] = data['example'] + ptrn_example.match(line).group(1) + "\n";
+				data['example'].append(ptrn_example.match(line).group(1));
 			elif manstarted is True and ptrn_params.match(line):
 				data['params'].append(ptrn_params.match(line).group(1));
