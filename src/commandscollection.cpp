@@ -2,6 +2,7 @@
 #include <iostream>
 #include <QString>
 #include "commands/background.h"
+#include "commands/countdown.h"
 #include "commands/createframe.h"
 #include "commands/draw.h"
 #include "commands/fhqvisualization.h"
@@ -16,6 +17,7 @@
 
 CommandsCollection::CommandsCollection(){
 	registr(new CommandBackground());
+	registr(new CommandCountDown());
 	registr(new CommandCreateFrame());
 	registr(new CommandDraw());
 	registr(new CommandFHQVisualization());

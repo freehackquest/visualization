@@ -19,6 +19,7 @@ SOURCES += \
 	src/parser.cpp \
 	src/commandscollection.cpp \
 	src/commands/background.cpp \
+	src/commands/countdown.cpp \
 	src/commands/createframe.cpp \
 	src/commands/draw.cpp \
 	src/commands/fhqvisualization.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
 	src/parser.h \
 	src/commandscollection.h \
 	src/commands/background.h \
+	src/commands/countdown.h \
 	src/commands/createframe.h \
 	src/commands/draw.h \
 	src/commands/fhqvisualization.h \

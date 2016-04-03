@@ -15,7 +15,7 @@ class FHQVisualizationLib:
 		self.s.close()
 		print "Diconnect"
 	def send(self,args):
-		self.s.send(" ".join(args) + "\n")
+		self.s.send("\"" + "\" \"".join(args) + "\"\n")
 	def background(self, color):
 		self.send(["background",color])
 	def fhqvisualization(self):
@@ -36,5 +36,7 @@ class FHQVisualizationLib:
 		self.send(["showthreelock", team])
 	def showwiringandlightnings(self,team,service):
 		self.send(["showwiringandlightnings", team, service])
+	def countdown(self,seconds, finishtext):
+		self.send(["countdown", str(seconds), finishtext])
 	
  
