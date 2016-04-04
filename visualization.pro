@@ -31,7 +31,7 @@ SOURCES += \
 	src/commands/table.cpp \
 	src/commands/text.cpp \
 	src/commands/tree.cpp \
-	src/helpersParseArgs.cpp \
+	src/helpers/parseArgs.cpp \
 
 HEADERS += \
 	src/interfaces/icommand.h \
@@ -56,5 +56,5 @@ HEADERS += \
 	src/commands/table.h \
 	src/commands/text.h \
 	src/commands/tree.h \
-	src/helpersParseArgs.h \
+	src/helpers/parseArgs.h \
 	

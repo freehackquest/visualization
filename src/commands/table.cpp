@@ -1,5 +1,5 @@
 #include "table.h"
-#include "../helpersParseArgs.h"
+#include "../helpers/parseArgs.h"
 #include <iostream>
 #include <QString>
 #include <QVector>

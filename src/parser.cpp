@@ -1,4 +1,5 @@
 #include "parser.h"
+#include "helpers/parseArgs.h"
 #include <iostream>
 
 Parser::Parser(ICore *pCore){
@@ -22,7 +23,7 @@ void Parser::parse(QString code){
 void Parser::parseLine(QString line){
 	line = removeComment(line);
 	if(line.length() > 0){
-		QStringList list = line.split(" ");
+		QStringList list = HelpersParseArgs::parse(line);
 		QString strName = list[0];
 		if(m_bMultiLineCommand == true && list.size() == 2){
 			if(list[0] == m_pTemporaryCommand->name() && list[1] == "end"){
