@@ -28,7 +28,7 @@ void TestParseArgs::testParseArgs1()
 
 void TestParseArgs::testParseArgs2()
 {
-	QStringList list = HelpersParseArgs::parse("command 10,1 #34  123abc abc456  13.88 good");
+	QStringList list = HelpersParseArgs::parse("command 10,1 '#34'  123abc abc456  13.88 good");
 	QVERIFY(list.size() == 7);
 	QVERIFY(list[0] == "command");
 	QVERIFY(list[1] == "10,1");
@@ -84,3 +84,21 @@ void TestParseArgs::testParseArgs6()
 	QVERIFY(list[3] == "test1");
 	QVERIFY(list[4] == "test2");
 };
+
+void TestParseArgs::testParseArgs7()
+{
+	QStringList list = HelpersParseArgs::parse("test 1 # hello kitty");
+	QVERIFY(list.size() == 2);
+	QVERIFY(list[0] == "test");
+	QVERIFY(list[1] == "1");
+};
+
+void TestParseArgs::testParseArgs8()
+{
+	QStringList list = HelpersParseArgs::parse("test 1 '# hello kitty'");
+	QVERIFY(list.size() == 3);
+	QVERIFY(list[0] == "test");
+	QVERIFY(list[1] == "1");
+	QVERIFY(list[2] == "# hello kitty");
+};
+

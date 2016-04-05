@@ -15,6 +15,8 @@ QStringList HelpersParseArgs::parse(QString str){
 				list << param;
 				param = "";
 			}
+		}else if(nState == 0 && c == '#' && (next_c == ' ' || next_c == 0)){
+			break;
 		}else if(nState == 1 && c == '\\' && next_c == '"'){
 			param += '"';
 			i++;
