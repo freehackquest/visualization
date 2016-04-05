@@ -17,6 +17,7 @@ private slots:
     void testParseArgs3();
     void testParseArgs4();
     void testParseArgs5();
+    void testParseArgs6();
     
 };
 
