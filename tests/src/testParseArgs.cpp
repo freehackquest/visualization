@@ -7,7 +7,7 @@ TestParseArgs::TestParseArgs(QObject *parent) :
 {
 }
 
-void TestParseArgs::testParseArgs1()
+void TestParseArgs::testParseArgs01()
 {
 	QStringList list = HelpersParseArgs::parse("test 5 123abc abc456 13.87 good");
 	QVERIFY(list.size() == 6);
@@ -26,7 +26,7 @@ void TestParseArgs::testParseArgs1()
     QCOMPARE(a.max(-10,-5), -5);*/
 };
 
-void TestParseArgs::testParseArgs2()
+void TestParseArgs::testParseArgs02()
 {
 	QStringList list = HelpersParseArgs::parse("command 10,1 '#34'  123abc abc456  13.88 good");
 	QVERIFY(list.size() == 7);
@@ -39,7 +39,7 @@ void TestParseArgs::testParseArgs2()
 	QVERIFY(list[6] == "good");
 };
 
-void TestParseArgs::testParseArgs3()
+void TestParseArgs::testParseArgs03()
 {
 	QStringList list = HelpersParseArgs::parse("\"test\" \"7\" 123 third some \"test1 test2\" \"\"");
 	QVERIFY(list.size() == 7);
@@ -52,14 +52,14 @@ void TestParseArgs::testParseArgs3()
 	QVERIFY(list[6] == "");
 };
 
-void TestParseArgs::testParseArgs4()
+void TestParseArgs::testParseArgs04()
 {
 	QStringList list = HelpersParseArgs::parse("\"test 5 123 test test test1 test2\"");
 	QVERIFY(list.size() == 1);
 	QVERIFY(list[0] == "test 5 123 test test test1 test2");
 };
 
-void TestParseArgs::testParseArgs5()
+void TestParseArgs::testParseArgs05()
 {
 	QStringList list = HelpersParseArgs::parse("\"test \\\"5 123\" test test test1 test2\"");
 	QVERIFY(list.size() == 5);
@@ -70,7 +70,7 @@ void TestParseArgs::testParseArgs5()
 	QVERIFY(list[4] == "test2");
 };
 
-void TestParseArgs::testParseArgs6()
+void TestParseArgs::testParseArgs06()
 {
 	QStringList list = HelpersParseArgs::parse("'test \"5 123' test test test1 test2\"");
 	/*std::cout << list.size() << "\n";
@@ -85,7 +85,7 @@ void TestParseArgs::testParseArgs6()
 	QVERIFY(list[4] == "test2");
 };
 
-void TestParseArgs::testParseArgs7()
+void TestParseArgs::testParseArgs07()
 {
 	QStringList list = HelpersParseArgs::parse("test 1 # hello kitty");
 	QVERIFY(list.size() == 2);
@@ -93,7 +93,7 @@ void TestParseArgs::testParseArgs7()
 	QVERIFY(list[1] == "1");
 };
 
-void TestParseArgs::testParseArgs8()
+void TestParseArgs::testParseArgs08()
 {
 	QStringList list = HelpersParseArgs::parse("test 1 '# hello kitty'");
 	QVERIFY(list.size() == 3);
@@ -102,3 +102,23 @@ void TestParseArgs::testParseArgs8()
 	QVERIFY(list[2] == "# hello kitty");
 };
 
+void TestParseArgs::testParseArgs09()
+{
+	QStringList list = HelpersParseArgs::parse("# hello kitty");
+	QVERIFY(list.size() == 0);
+};
+
+void TestParseArgs::testParseArgs10()
+{
+	QStringList list = HelpersParseArgs::parse("");
+	QVERIFY(list.size() == 0);
+};
+
+void TestParseArgs::testParseArgs11()
+{
+	QStringList list = HelpersParseArgs::parse("test 1 \"# hello kitty'");
+	QVERIFY(list.size() == 3);
+	QVERIFY(list[0] == "test");
+	QVERIFY(list[1] == "1");
+	QVERIFY(list[2] == "# hello kitty'");
+};
