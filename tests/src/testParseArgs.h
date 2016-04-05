@@ -12,7 +12,11 @@ public:
     explicit TestParseArgs(QObject *parent = 0);
 
 private slots:
-    void testParse();
+    void testParseArgs1();
+    void testParseArgs2();
+    void testParseArgs3();
+    void testParseArgs4();
+    void testParseArgs5();
     
 };
 

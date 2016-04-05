@@ -35,3 +35,6 @@ tmp/*
 *~
 qrc_visualization.cpp
 *.pyc
+
+tests/tmp/*
+tests/tests
